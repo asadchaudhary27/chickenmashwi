@@ -256,7 +256,7 @@ p, span, a, button {
     min-height: 100vh;
     position: relative;
     z-index: 10;
-    background-image: url('../assets/images/Hero.png');
+    background-image: url('../assets/images/Hero.jpg');
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;

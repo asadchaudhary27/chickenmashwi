@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Mashwi - Bold & Beautiful</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Preload Hero LCP Assets for Instant Loading -->
+    <link rel="preload" as="image" href="assets/images/Hero.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/chicken_holding_board.png" fetchpriority="high">
     <!-- Google Fonts for GenZ Aesthetic -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -41,8 +44,8 @@
 
     <main>
         <!-- Hero Section: Yellow (Hero Plate) -->
-        <section class="hero" style="background-image: url('assets/images/Hero.png');">
-            <img src="assets/images/chicken_holding_board.png" class="hero-chicken-mascot" alt="Chicken Mashwi Mascot">
+        <section class="hero" style="background-image: url('assets/images/Hero.jpg');">
+            <img src="assets/images/chicken_holding_board.png" class="hero-chicken-mascot" alt="Chicken Mashwi Mascot" fetchpriority="high">
             <div class="hero-content">
                 <h1><span class="highlight">The Taste of</span><br>Real Arabia</h1>
                 <p>Bold. Authentic. Irresistible. Serving the best charcoal-grilled rotisserie chicken in Lahore.</p>
@@ -54,7 +57,7 @@
         </section>
 
         <!-- Section 1: About Us - White (1) -->
-        <section id="about" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (1).png');">
+        <section id="about" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (1).jpg');">
             <div class="glass-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_party_celebrate.png" class="mascot top-right-mascot" alt="Celebrating Chicken" loading="lazy" decoding="async">
                 <img src="assets/images/chicken_sneaking_food.png" class="mascot bottom-left-mascot" alt="Sneaking Chicken" loading="lazy" decoding="async">
@@ -65,7 +68,7 @@
         </section>
 
         <!-- Section 1.5: Ingredients & Method - Yellow (1) -->
-        <section id="ingredients" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (1).png');">
+        <section id="ingredients" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (1).jpg');">
             <div class="glass-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_chef_grill.png" class="mascot bottom-left-mascot" alt="Chef Grill Chicken" loading="lazy" decoding="async">
                 <h2 class="section-title">The Mashwi Method</h2>
@@ -75,7 +78,7 @@
         </section>
 
         <!-- Section 2: The Complete Menu - White (2) -->
-        <section id="menu" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (2).png'); padding-bottom: 6rem;">
+        <section id="menu" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (2).jpg'); padding-bottom: 6rem;">
             <div class="glass-card wide-card text-center" style="margin: 4rem 0; position: relative;">
                 <img src="assets/images/chicken_peeking_menu.png" class="mascot top-center-mascot" alt="Peeking Chicken" loading="lazy" decoding="async">
                 <img src="assets/images/chicken_pickup_food.png" class="mascot bottom-right-mascot" style="width: 200px; bottom: -80px; right: -50px;" alt="Pickup Food Chicken" loading="lazy" decoding="async">
@@ -598,7 +601,7 @@
         </section>
 
         <!-- Section 4: The Mashwi Quality & Secret - Yellow (2) -->
-        <section id="quality" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (2).png');">
+        <section id="quality" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (2).jpg');">
             <div class="glass-card wide-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_carrying_tray.png" class="mascot top-right-mascot" alt="Quality Chicken" loading="lazy" decoding="async">
                 <img src="assets/images/chicken_sneaking_food.png" class="mascot bottom-left-mascot" alt="Sneaking Chicken" loading="lazy" decoding="async">
@@ -627,7 +630,7 @@
         </section>
 
         <!-- Section 5: Fast Delivery & Party Catering - White (3) -->
-        <section id="delivery" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (3).png');">
+        <section id="delivery" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (3).jpg');">
             <div class="glass-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_bike_delivery.png" class="mascot top-center-mascot" style="width: 140px; top: -75px;" alt="Fast Delivery Chicken" loading="lazy" decoding="async">
                 <h2 class="section-title">Fast Delivery & Party Catering</h2>
@@ -641,7 +644,7 @@
         </section>
 
         <!-- Section 6: Customer Reviews - Yellow (3) -->
-        <section id="reviews" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (3).png');">
+        <section id="reviews" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (3).jpg');">
             <div class="glass-card wide-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_party_celebrate.png" class="mascot top-right-mascot" alt="Celebrating Customers" loading="lazy" decoding="async">
                 <img src="assets/images/chicken_sleepy_food.png" class="mascot bottom-left-mascot" alt="Food Coma Chicken" loading="lazy" decoding="async">
@@ -676,7 +679,7 @@
         </section>
 
         <!-- Section 7: Location & Visit Us - White (4) -->
-        <section id="contact" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (4).png'); padding-bottom: 7rem;">
+        <section id="contact" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (4).jpg'); padding-bottom: 7rem;">
             <div class="glass-card text-center" style="position: relative;">
                 <img src="assets/images/chicken_pointing_cta.png" class="mascot bottom-right-mascot" alt="Pointing Chicken" loading="lazy" decoding="async">
                 <h2 class="section-title">Visit Us in Lahore</h2>
