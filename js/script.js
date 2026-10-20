@@ -89,9 +89,9 @@ function closeCart() {
     cartOverlay.classList.remove('active');
 }
 
-cartBtn.addEventListener('click', openCart);
-closeCartBtn.addEventListener('click', closeCart);
-cartOverlay.addEventListener('click', closeCart);
+if (cartBtn) cartBtn.addEventListener('click', openCart);
+if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
 // Add to Cart with Event Delegation
 document.addEventListener('click', (e) => {
@@ -222,25 +222,30 @@ const closeModalBtn = document.getElementById('close-modal');
 const checkoutForm = document.getElementById('checkout-form');
 
 // Open Modal
-checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-        alert("Your cart is empty! Add some delicious Mashwi first.");
-        return;
-    }
-    checkoutModal.classList.add('active');
-});
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert("Your cart is empty! Add some delicious Mashwi first.");
+            return;
+        }
+        if (checkoutModal) checkoutModal.classList.add('active');
+    });
+}
 
 // Close Modal
 const closeCheckoutModal = () => {
-    checkoutModal.classList.remove('active');
+    if (checkoutModal) checkoutModal.classList.remove('active');
 };
-closeModalBtn.addEventListener('click', closeCheckoutModal);
-checkoutModal.addEventListener('click', (e) => {
-    if (e.target === checkoutModal) closeCheckoutModal();
-});
+if (closeModalBtn) closeModalBtn.addEventListener('click', closeCheckoutModal);
+if (checkoutModal) {
+    checkoutModal.addEventListener('click', (e) => {
+        if (e.target === checkoutModal) closeCheckoutModal();
+    });
+}
 
 // Handle Form Submit
-checkoutForm.addEventListener('submit', (e) => {
+if (checkoutForm) {
+    checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     const name = document.getElementById('order-name').value;
