@@ -946,6 +946,191 @@ p, span, a, button {
     box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
 }
 
+/* ==========================================================================
+   Menu Cards Popup Modal (Interactive Preview)
+   ========================================================================== */
+.menu-card-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 10, 8, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: clamp(0.75rem, 3vw, 2rem);
+}
+
+.menu-card-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.menu-card-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1060px;
+    max-height: 92vh;
+    border-radius: 24px;
+    position: relative;
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menu-card-modal-overlay.active .menu-card-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.menu-modal-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid #f0ebe1;
+    background: #fffdfa;
+    position: relative;
+}
+
+.menu-modal-title-wrap h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--primary-color);
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-modal-title-wrap p {
+    color: #666;
+    font-size: 0.88rem;
+    margin: 0.2rem 0 0;
+}
+
+.menu-modal-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f4efe6;
+    border: none;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.menu-modal-close-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.menu-modal-cards-wrap {
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    background: #fbf9f5;
+}
+
+.menu-modal-single-card {
+    background: #ffffff;
+    border: 1px solid #e9e3d5;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-modal-single-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.menu-modal-card-img-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    cursor: zoom-in;
+    background: #f0ebe1;
+}
+
+.menu-modal-card-img-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.menu-modal-card-img-link:hover img {
+    transform: scale(1.02);
+}
+
+.menu-modal-card-label {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #2c2523;
+}
+
+.menu-modal-zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    background: #fff4ed;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.menu-modal-zoom-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .menu-modal-cards-wrap {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.25rem;
+    }
+    .menu-card-modal-content {
+        max-height: 95vh;
+        border-radius: 18px;
+    }
+    .menu-modal-top {
+        padding: 1rem 1.25rem;
+    }
+}
+
 /* Features & Reviews Cards */
 .features-grid {
     display: grid;

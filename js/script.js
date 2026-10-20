@@ -284,3 +284,53 @@ checkoutForm.addEventListener('submit', (e) => {
     closeCart();
     checkoutForm.reset();
 });
+
+// --- Menu Card Popup Modal Logic ---
+const menuCardModal = document.getElementById('menu-card-modal');
+const closeMenuCardModalBtn = document.getElementById('close-menu-card-modal');
+const openMenuCardBtns = document.querySelectorAll('.open-menu-card-btn');
+
+const openMenuModal = (e) => {
+    if (e) e.preventDefault();
+    if (menuCardModal) {
+        menuCardModal.classList.add('active');
+        menuCardModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+const closeMenuModal = () => {
+    if (menuCardModal) {
+        menuCardModal.classList.remove('active');
+        menuCardModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+};
+
+openMenuCardBtns.forEach(btn => {
+    btn.addEventListener('click', openMenuModal);
+});
+
+if (closeMenuCardModalBtn) {
+    closeMenuCardModalBtn.addEventListener('click', closeMenuModal);
+}
+
+if (menuCardModal) {
+    menuCardModal.addEventListener('click', (e) => {
+        if (e.target === menuCardModal) {
+            closeMenuModal();
+        }
+    });
+}
+
+// Global Escape Key Listener for Modals
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (menuCardModal && menuCardModal.classList.contains('active')) {
+            closeMenuModal();
+        }
+        if (checkoutModal && checkoutModal.classList.contains('active')) {
+            closeCheckoutModal();
+        }
+    }
+});
