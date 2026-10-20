@@ -1,0 +1,286 @@
+// --- Mobile Navbar Toggle with Outside Click & Overlay ---
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+const navOverlay = document.getElementById('nav-overlay');
+
+function openNav() {
+    if (!navLinks) return;
+    navLinks.classList.add('nav-active');
+    if (navOverlay) navOverlay.classList.add('active');
+    if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'true');
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('ri-menu-line');
+            icon.classList.add('ri-close-line');
+        }
+    }
+}
+
+function closeNav() {
+    if (!navLinks) return;
+    navLinks.classList.remove('nav-active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+        }
+    }
+}
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navLinks.classList.contains('nav-active')) {
+            closeNav();
+        } else {
+            openNav();
+        }
+    });
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeNav);
+    }
+
+    // Close nav when clicking any link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeNav);
+    });
+
+    // Close when clicking outside navbar
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('nav-active')) {
+            if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                closeNav();
+            }
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('nav-active')) {
+            closeNav();
+        }
+    });
+}
+
+// --- Cart Logic ---
+let cart = [];
+
+const cartBtn = document.getElementById('cart-btn');
+const closeCartBtn = document.getElementById('close-cart');
+const cartSidebar = document.getElementById('cart-sidebar');
+const cartOverlay = document.getElementById('cart-overlay');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotalElement = document.getElementById('cart-total');
+const cartBadge = document.getElementById('cart-count');
+
+// Toggle Cart
+function openCart() {
+    cartSidebar.classList.add('active');
+    cartOverlay.classList.add('active');
+}
+
+function closeCart() {
+    cartSidebar.classList.remove('active');
+    cartOverlay.classList.remove('active');
+}
+
+cartBtn.addEventListener('click', openCart);
+closeCartBtn.addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+// Add to Cart with Event Delegation
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-to-cart-btn');
+    if (!btn) return;
+    
+    const name = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price);
+    if (!name || isNaN(price)) return;
+    
+    // Check if item exists
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+    
+    updateCartUI();
+    
+    // Feedback animation
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = '<i class="ri-check-line"></i> Added';
+    btn.style.background = 'var(--primary-color)';
+    btn.style.color = '#ffffff';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalContent;
+        btn.style.background = '';
+        btn.style.color = '';
+    }, 1200);
+});
+
+// Category Tab Filtering
+const menuTabs = document.querySelectorAll('.menu-tab-btn');
+const categorySections = document.querySelectorAll('.menu-category-section');
+
+menuTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        menuTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const targetCategory = tab.dataset.category;
+        
+        categorySections.forEach(sec => {
+            if (targetCategory === 'all' || sec.dataset.category === targetCategory) {
+                sec.style.display = 'block';
+                // Trigger scroll-reveal check
+                sec.classList.add('active');
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Remove from Cart
+window.removeItem = function(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+};
+
+// Update Cart UI
+function updateCartUI() {
+    cartItemsContainer.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty! Go add some boldness.</div>';
+        cartTotalElement.innerText = 'Rs. 0.00';
+        cartBadge.innerText = '0';
+        return;
+    }
+    
+    let total = 0;
+    let totalItems = 0;
+    
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        totalItems += item.quantity;
+        
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+            <div class="item-details">
+                <h4>${item.name}</h4>
+                <div class="item-price">Rs. ${item.price.toFixed(2)} x ${item.quantity}</div>
+            </div>
+            <button class="remove-item" onclick="removeItem(${index})"><i class="ri-delete-bin-line"></i></button>
+        `;
+        cartItemsContainer.appendChild(itemEl);
+    });
+    
+    cartTotalElement.innerText = 'Rs. ' + total.toFixed(2);
+    cartBadge.innerText = totalItems;
+}
+
+// --- Scroll Reveal Logic ---
+const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+};
+
+const displayScrollElement = (element) => {
+    element.classList.add('active');
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+        }
+    });
+}
+
+// Check on load
+window.addEventListener('load', handleScrollAnimation);
+// Check on scroll
+window.addEventListener('scroll', () => {
+    handleScrollAnimation();
+});
+
+// --- WhatsApp Checkout Logic ---
+const checkoutBtn = document.querySelector('.checkout-btn');
+const checkoutModal = document.getElementById('checkout-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const checkoutForm = document.getElementById('checkout-form');
+
+// Open Modal
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Add some delicious Mashwi first.");
+        return;
+    }
+    checkoutModal.classList.add('active');
+});
+
+// Close Modal
+const closeCheckoutModal = () => {
+    checkoutModal.classList.remove('active');
+};
+closeModalBtn.addEventListener('click', closeCheckoutModal);
+checkoutModal.addEventListener('click', (e) => {
+    if (e.target === checkoutModal) closeCheckoutModal();
+});
+
+// Handle Form Submit
+checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('order-name').value;
+    const phone = document.getElementById('order-phone').value;
+    const address = document.getElementById('order-address').value;
+    const notes = document.getElementById('order-notes').value;
+    
+    let total = 0;
+    
+    // Build Message
+    let message = `*🍗 New Order - Chicken Mashwi*\n\n`;
+    message += `*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n`;
+    message += `*Order Details:*\n`;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `${item.quantity}x ${item.name} - Rs. ${itemTotal.toFixed(2)}\n`;
+    });
+    
+    message += `\n*Total:* Rs. ${total.toFixed(2)}\n`;
+    
+    if (notes) {
+        message += `\n*Notes:* ${notes}\n`;
+    }
+    
+    // Replace with actual Chicken Mashwi number
+    const phoneNumber = "923399978999"; 
+    
+    // Encode for URL
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappURL, '_blank');
+    
+    // Optional: Clear Cart after sending
+    cart = [];
+    updateCartUI();
+    closeCheckoutModal();
+    closeCart();
+    checkoutForm.reset();
+});

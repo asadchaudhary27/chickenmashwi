@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Mashwi - Official Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4700;
+            --primary-dark: #cc3700;
+            --gold: #c59b27;
+            --gold-light: #f3e5b8;
+            --dark: #121212;
+            --cream: #faf2dc;
+            --border: #e2cba0;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #201e1b;
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Top Action Bar */
+        .action-bar {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            color: #fff;
+        }
+
+        .action-bar a, .action-bar button {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-bar button.primary-btn {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .action-bar a:hover, .action-bar button:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+
+        /* Menu Sheet Container (Printable Card) */
+        .menu-card {
+            width: 100%;
+            max-width: 900px;
+            background: linear-gradient(180deg, #fffdf8 0%, #faf2dc 100%);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 40px rgba(197, 155, 39, 0.15);
+            border: 4px double var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle Corner Ornaments */
+        .menu-card::before, .menu-card::after {
+            content: "✦";
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        .menu-card::before { top: 12px; left: 16px; }
+        .menu-card::after { top: 12px; right: 16px; }
+
+        /* View Toggle Tabs */
+        .view-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .view-tab-btn {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            color: var(--text-dark);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .view-tab-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 71, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Menu Cards Photo Showcase */
+        .menu-cards-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu-card-img-box {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card-img-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+        }
+
+        .menu-card-img-box a {
+            display: block;
+            overflow: hidden;
+            background: #fdfdfd;
+        }
+
+        .menu-card-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .menu-card-img-box:hover img {
+            transform: scale(1.03);
+        }
+
+        .menu-card-caption {
+            padding: 1rem 1.2rem;
+            background: #faf7ef;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .menu-card-caption h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .menu-card-caption a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #eee6d0;
+            padding: 0.35rem 0.8rem;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+
+        .menu-card-caption a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Header */
+        .menu-header {
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .logo-wrap {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+
+        .logo-wrap img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.3rem;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Two Columns Layout */
+        .menu-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        /* Category */
+        .category-box {
+            margin-bottom: 2rem;
+        }
+
+        .cat-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--gold);
+            padding-bottom: 0.35rem;
+            margin-bottom: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Menu Item */
+        .menu-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .item-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .item-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        .item-dots {
+            flex: 1;
+            border-bottom: 1px dotted #bbb;
+            margin: 0 4px 4px 4px;
+        }
+
+        .item-price {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        .item-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: #0f766e;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        .menu-footer {
+            border-top: 2px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #eee7d5;
+            color: #111;
+            text-decoration: none;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .social-pill:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            body {
+                background: #fff !important;
+                padding: 0 !important;
+            }
+            .action-bar {
+                display: none !important;
+            }
+            .menu-card {
+                box-shadow: none !important;
+                border: 2px solid var(--gold) !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                padding: 1.5cm 1.2cm !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-columns {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .menu-card {
+                padding: 2rem 1.2rem;
+            }
+            .brand-title {
+                font-size: 2rem;
+            }
+            .menu-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Action Bar -->
+    <div class="action-bar">
+        <a href="index.html"><i class="ri-arrow-left-line"></i> Back to Website</a>
+        <div style="display: flex; gap: 0.8rem;">
+            <a href="https://wa.me/923399978999" target="_blank" style="background: #25D366;"><i class="ri-whatsapp-line"></i> Order on WhatsApp</a>
+            <button type="button" class="primary-btn" onclick="window.print()"><i class="ri-printer-line"></i> Print / Save PDF</button>
+        </div>
+    </div>
+
+    <!-- Official Menu Card -->
+    <main class="menu-card" id="menu-card">
+        <!-- Header -->
+        <header class="menu-header">
+            <div class="logo-wrap">
+                <img src="assets/images/Logo.jpeg" alt="Chicken Mashwi Logo">
+            </div>
+            <h1 class="brand-title">Chicken Mashwi</h1>
+            <p class="tagline">Good Food, Good Mood • The Taste of Real Arabia</p>
+        </header>
+
+        <!-- Official Menu Cards Images Showcase -->
+        <section class="menu-cards-showcase" id="visual-cards-section">
+            <div class="menu-card-img-box">
+                <a href="assets/images/menu (1).png" target="_blank" title="Click to view full size">
+                    <img src="assets/images/menu (1).png" alt="Chicken Mashwi Menu Card 1 - Appetisers, Salads, Plates & Beverages">
+                </a>
+                <div class="menu-card-caption">
+                    <h3>Menu Card 1 — Appetisers, Plates & Drinks</h3>
+                    <a href="assets/images/menu (1).png" target="_blank"><i class="ri-zoom-in-line"></i> View Full Image</a>
+                </div>
+            </div>
+
+            <div class="menu-card-img-box">
+                <a href="assets/images/menu (2).png" target="_blank" title="Click to view full size">
+                    <img src="assets/images/menu (2).png" alt="Chicken Mashwi Menu Card 2 - Main Dish & Arabic Wrap">
+                </a>
+                <div class="menu-card-caption">
+                    <h3>Menu Card 2 — Main Dish & Arabic Wrap</h3>
+                    <a href="assets/images/menu (2).png" target="_blank"><i class="ri-zoom-in-line"></i> View Full Image</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="menu-footer">
+            <div class="footer-info">
+                <p><i class="ri-map-pin-2-fill" style="color: var(--primary);"></i> <strong>Location:</strong> Barkat Market, Commercial Area, Garden Town, Lahore</p>
+                <p><i class="ri-phone-fill" style="color: var(--primary);"></i> <strong>Phone:</strong> <a href="tel:03399978999" style="color: inherit; text-decoration: none;">033-999-78-999</a> &nbsp;|&nbsp; <i class="ri-whatsapp-fill" style="color: #25D366;"></i> <a href="https://wa.me/923399978999" target="_blank" style="color: inherit; text-decoration: none;">WhatsApp: 033-999-78-999</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://instagram.com/chickenmashwi" target="_blank" class="social-pill"><i class="ri-instagram-line" style="color: #E1306C;"></i> @chickenmashwi</a>
+                <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="social-pill"><i class="ri-navigation-line" style="color: var(--primary);"></i> Maps Directions</a>
+            </div>
+        </footer>
+    </main>
+
+    
+</body>
+</html>

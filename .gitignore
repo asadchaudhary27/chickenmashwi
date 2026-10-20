@@ -1,0 +1,16 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Backups and Logs
+*.bak
+*.tmp
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Temporary Scripts
+*.ps1

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Mashwi - Bold & Beautiful</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts for GenZ Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/Logo.jpeg" alt="Chicken Mashwi Logo" loading="lazy" decoding="async"></a>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="#about" class="nav-btn">Our Story</a>
+                <a href="#ingredients" class="nav-btn">The Method</a>
+                <a href="#menu" class="nav-btn">Menu</a>
+                <a href="#quality" class="nav-btn">Quality</a>
+                <a href="#delivery" class="nav-btn">Delivery</a>
+                <a href="#contact" class="nav-btn">Contact</a>
+                <a href="#menu" class="nav-btn primary-nav-btn">Order Now</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-btn" title="View Cart">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <main>
+        <!-- Hero Section: Yellow (Hero Plate) -->
+        <section class="hero" style="background-image: url('assets/images/Hero.png');">
+            <img src="assets/images/chicken_holding_board.png" class="hero-chicken-mascot" alt="Chicken Mashwi Mascot">
+            <div class="hero-content">
+                <h1><span class="highlight">The Taste of</span><br>Real Arabia</h1>
+                <p>Bold. Authentic. Irresistible. Serving the best charcoal-grilled rotisserie chicken in Lahore.</p>
+                <div class="hero-btns">
+                    <a href="#menu" class="btn-primary">Order Now <i class="ri-arrow-right-line"></i></a>
+                    <a href="menu.html" class="btn-secondary" target="_blank"><i class="ri-restaurant-line"></i> Menu Card</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: About Us - White (1) -->
+        <section id="about" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (1).png');">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_party_celebrate.png" class="mascot top-right-mascot" alt="Celebrating Chicken" loading="lazy" decoding="async">
+                <img src="assets/images/chicken_sneaking_food.png" class="mascot bottom-left-mascot" alt="Sneaking Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">Our Story</h2>
+                <h3>Authentic Heritage Cuisine</h3>
+                <p>Chicken Mashwi specializes in slow-roasted, charcoal-grilled rotisserie chicken. Our chicken is marinated in traditional Arabian spices like sumac, smoked paprika, and cumin, then roasted over open flames to achieve a perfectly crispy, golden-brown skin.</p>
+            </div>
+        </section>
+
+        <!-- Section 1.5: Ingredients & Method - Yellow (1) -->
+        <section id="ingredients" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (1).png');">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_chef_grill.png" class="mascot bottom-left-mascot" alt="Chef Grill Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">The Mashwi Method</h2>
+                <h3>Charcoal-Grilled to Perfection</h3>
+                <p>We don't cut corners. Every chicken is marinated overnight in our signature blend of sumac, smoked paprika, cumin, and secret Arabian spices. It is then slow-roasted over an open charcoal flame, locking in the juices while rendering the skin perfectly crisp and deeply flavorful.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: The Complete Menu - White (2) -->
+        <section id="menu" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (2).png'); padding-bottom: 6rem;">
+            <div class="glass-card wide-card text-center" style="margin: 4rem 0; position: relative;">
+                <img src="assets/images/chicken_peeking_menu.png" class="mascot top-center-mascot" alt="Peeking Chicken" loading="lazy" decoding="async">
+                <img src="assets/images/chicken_pickup_food.png" class="mascot bottom-right-mascot" style="width: 200px; bottom: -80px; right: -50px;" alt="Pickup Food Chicken" loading="lazy" decoding="async">
+                
+                <div class="menu-header-top">
+                    <h2 class="section-title" style="margin-bottom: 0.5rem; margin-top: 1.5rem;">Chicken Mashwi Menu</h2>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.15rem; color: #555;">Authentic slow flame roasted chicken with aromatic Arabic spices, fresh sides & signature sauces.</p>
+                    <div class="menu-actions">
+                        <a href="menu.html" target="_blank" class="btn-secondary">
+                            <i class="ri-restaurant-line"></i> Standalone Menu Card
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category Navigation Tabs -->
+                <div class="menu-tabs">
+                    <button type="button" class="menu-tab-btn active" data-category="all"><i class="ri-restaurant-line"></i> All Items</button>
+                    <button type="button" class="menu-tab-btn" data-category="chicken-mashwi"><i class="ri-fire-line"></i> Chicken Mashwi</button>
+                    <button type="button" class="menu-tab-btn" data-category="wraps-plates"><i class="ri-goblet-line"></i> Plates & Wraps</button>
+                    <button type="button" class="menu-tab-btn" data-category="noodles"><i class="ri-bowl-line"></i> Noodles</button>
+                    <button type="button" class="menu-tab-btn" data-category="appetisers"><i class="ri-apps-2-line"></i> Appetisers</button>
+                    <button type="button" class="menu-tab-btn" data-category="salads"><i class="ri-leaf-line"></i> Salads</button>
+                    <button type="button" class="menu-tab-btn" data-category="beverages"><i class="ri-cup-line"></i> Beverages</button>
+                </div>
+                
+                <!-- Category 1: Chicken Mashwi (Main Dish) -->
+                <div class="menu-category-section" data-category="chicken-mashwi">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-fire-fill"></i> Chicken Mashwi (Main Dish)</h3>
+                        <p class="category-subtitle">Slow flame roasted chicken with aromatic Arabic spices, served with fluffy yellow & white rice, crispy fried onions, potato wedges, fresh tomato and daqoos sauces.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Full Chicken with Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> Bestseller • Serves 4</span>
+                                <img src="assets/images/menu/chicken_mashwi_full_with_rice.jpg" alt="Full Chicken with Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Full Chicken (with Rice)</h4>
+                                <p>Whole slow flame roasted chicken served with fluffy yellow & white rice, crispy fried onions, potato wedges & daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">4 Persons</span>
+                                    <span class="mini-tag">With Rice & Wedges</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 2,500</span>
+                                <button class="add-to-cart-btn" data-name="Full Chicken (with Rice)" data-price="2500"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Full Chicken without Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-fire-line"></i> Serves 3-4</span>
+                                <img src="assets/images/menu/chicken_mashwi_roasted_chicken_closeup.jpg" alt="Full Chicken without Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Full Chicken (without Rice)</h4>
+                                <p>Whole flame roasted chicken seasoned with authentic Arabian spices, served with potato wedges and signature daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chicken Only</span>
+                                    <span class="mini-tag">Daqoos & Wedges</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 2,000</span>
+                                <button class="add-to-cart-btn" data-name="Full Chicken (without Rice)" data-price="2000"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Half Chicken with Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-heart-fill"></i> Popular • Serves 2</span>
+                                <img src="assets/images/menu/chicken_mashwi_half_with_rice.jpg" alt="Half Chicken with Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Half Chicken (with Rice)</h4>
+                                <p>Half roasted chicken served with aromatic yellow & white rice, crispy fried onions, potato wedges & daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">2-3 Persons</span>
+                                    <span class="mini-tag">With Rice</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 1,350</span>
+                                <button class="add-to-cart-btn" data-name="Half Chicken (with Rice)" data-price="1350"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Half Chicken without Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-restaurant-line"></i> Serves 1-2</span>
+                                <img src="assets/images/menu/chicken_mashwi_roasted_chicken_closeup.jpg" alt="Half Chicken without Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Half Chicken (without Rice)</h4>
+                                <p>Half roasted chicken with crispy skin, juicy tender meat, served with potato wedges and signature daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chicken Only</span>
+                                    <span class="mini-tag">With Wedges</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 1,000</span>
+                                <button class="add-to-cart-btn" data-name="Half Chicken (without Rice)" data-price="1000"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Quarter Chicken with Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-user-smile-line"></i> 1 Person Meal</span>
+                                <img src="assets/images/menu/chicken_mashwi_quarter_with_rice.jpg" alt="Quarter Chicken with Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Quarter Chicken (with Rice)</h4>
+                                <p>1/4 roasted chicken served with fluffy yellow & white rice, crispy fried onions, potato wedges & daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Solo Deal</span>
+                                    <span class="mini-tag">With Rice</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 750</span>
+                                <button class="add-to-cart-btn" data-name="Quarter Chicken (with Rice)" data-price="750"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Quarter Chicken without Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-fire-line"></i> Solo Portion</span>
+                                <img src="assets/images/menu/chicken_mashwi_roasted_chicken_closeup.jpg" alt="Quarter Chicken without Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Quarter Chicken (without Rice)</h4>
+                                <p>1/4 flame-roasted chicken seasoned in Arabic spices, served with crispy potato wedges and fresh daqoos sauce.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Solo Portion</span>
+                                    <span class="mini-tag">With Wedges</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 600</span>
+                                <button class="add-to-cart-btn" data-name="Quarter Chicken (without Rice)" data-price="600"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Plain Rice -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-bowl-line"></i> Signature Side</span>
+                                <img src="assets/images/menu/chicken_mashwi_plain_rice.jpg" alt="Plain Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Plain Rice</h4>
+                                <p>Extra portion of signature fluffy yellow & white Bukhari rice, garnished with sweet golden crispy fried onions.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Fluffy Bukhari Rice</span>
+                                    <span class="mini-tag">Crispy Onions</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 250</span>
+                                <button class="add-to-cart-btn" data-name="Plain Rice" data-price="250"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Mashwi Plate & Wrap -->
+                <div class="menu-category-section" data-category="wraps-plates">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-goblet-fill"></i> Mashwi Plate & Wrap</h3>
+                        <p class="category-subtitle">Fast, satisfying Arabic street-style meals and flavor-packed wraps.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Mashwi Plate -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> Value Favorite</span>
+                                <img src="assets/images/menu/chicken_mashwi_plate_leg.jpg" alt="Mashwi Plate" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Mashwi Plate</h4>
+                                <p>A delicious meal plate that comes with a piece of flame-roasted chicken served over fragrant rice.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chicken Piece</span>
+                                    <span class="mini-tag">Arabic Rice</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 400</span>
+                                <button class="add-to-cart-btn" data-name="Mashwi Plate" data-price="400"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Arabic Chicken Wrap -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-fire-fill"></i> Must Try</span>
+                                <img src="assets/images/menu/chicken_mashwi_arabic_wrap.jpg" alt="Arabic Chicken Wrap" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Arabic Chicken Wrap</h4>
+                                <p>Roasted chicken + fresh veggies + tahini + spicy red sauce + creamy garlic mayo in warm pita wrap.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Roasted Chicken</span>
+                                    <span class="mini-tag">Tahini & Garlic Mayo</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 400</span>
+                                <button class="add-to-cart-btn" data-name="Arabic Chicken Wrap" data-price="400"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Mashwi Noodles -->
+                <div class="menu-category-section" data-category="noodles">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-bowl-fill"></i> Mashwi Noodles</h3>
+                        <p class="category-subtitle">Wok stir-fried noodles cooked to perfection with vegetables and customizable add-ons.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Stir-Fry Noodles Base -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-leaf-line"></i> Veggie Special</span>
+                                <img src="assets/images/menu/chicken_mashwi_stir_fry_noodles.jpg" alt="Stir-Fry Noodles" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Stir-Fry Noodles (with Veggie)</h4>
+                                <p>Delicious stir-fried noodles tossed with fresh crisp veggies and aromatic seasoning.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Add on: Egg (+Rs. 80)</span>
+                                    <span class="mini-tag">Add on: Chicken (+Rs. 200)</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 350</span>
+                                <button class="add-to-cart-btn" data-name="Stir-Fry Noodles (Veggie)" data-price="350"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Stir-Fry Noodles with Egg -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-copper-diamond-line"></i> With Egg</span>
+                                <img src="assets/images/menu/chicken_mashwi_stir_fry_noodles.jpg" alt="Stir-Fry Noodles with Egg" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Stir-Fry Noodles with Egg</h4>
+                                <p>Stir-fried noodles with fresh veggies plus fried egg add-on (Rs. 350 + Rs. 80).</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Egg Add-on Included</span>
+                                    <span class="mini-tag">Fresh Veggies</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 430</span>
+                                <button class="add-to-cart-btn" data-name="Stir-Fry Noodles with Egg" data-price="430"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Stir-Fry Noodles with Chicken -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-restaurant-2-line"></i> With Chicken</span>
+                                <img src="assets/images/menu/chicken_mashwi_stir_fry_noodles.jpg" alt="Stir-Fry Noodles with Chicken" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Stir-Fry Noodles with Chicken</h4>
+                                <p>Stir-fried noodles with fresh vegetables loaded with juicy roasted chicken cuts (Rs. 350 + Rs. 200).</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chicken Add-on Included</span>
+                                    <span class="mini-tag">High Protein</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 550</span>
+                                <button class="add-to-cart-btn" data-name="Stir-Fry Noodles with Chicken" data-price="550"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Appetisers -->
+                <div class="menu-category-section" data-category="appetisers">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-apps-2-fill"></i> Appetisers</h3>
+                        <p class="category-subtitle">Authentic Middle Eastern dips and spiced starters.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Plain Hummus -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-check-line"></i> Classic Dip</span>
+                                <img src="assets/images/menu/chicken_mashwi_hummus_plain.jpg" alt="Plain Hummus" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Hummus (Plain)</h4>
+                                <p>Silky smooth blended chickpeas with tahini, garlic, lemon juice, and extra virgin olive oil.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Authentic Tahini</span>
+                                    <span class="mini-tag">Olive Oil</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 500</span>
+                                <button class="add-to-cart-btn" data-name="Hummus (Plain)" data-price="500"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Hummus with Chicken -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> House Specialty</span>
+                                <img src="assets/images/menu/chicken_mashwi_hummus_chicken.jpg" alt="Hummus with Chicken" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Hummus with Chicken</h4>
+                                <p>Our signature creamy hummus bowl topped with warm, aromatic flame-roasted spiced chicken pieces.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Topped with Chicken</span>
+                                    <span class="mini-tag">Rich & Flavorful</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 700</span>
+                                <button class="add-to-cart-btn" data-name="Hummus with Chicken" data-price="700"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Batata Harra -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-fire-fill"></i> Spicy Lebanese</span>
+                                <img src="assets/images/menu/chicken_mashwi_batata_harra.jpg" alt="Batata Harra" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Batata Harra</h4>
+                                <p>Crispy golden Arabian potato cubes tossed with chili, garlic, fresh coriander, and warm Arabic spices.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Spicy Potatoes</span>
+                                    <span class="mini-tag">Garlic & Cilantro</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 250</span>
+                                <button class="add-to-cart-btn" data-name="Batata Harra" data-price="250"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Salads -->
+                <div class="menu-category-section" data-category="salads">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-leaf-fill"></i> Salad</h3>
+                        <p class="category-subtitle">Fresh, nutritious salads packed with vibrant flavors and healthy macros.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Chicken Salad -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge nutrition"><i class="ri-heart-pulse-fill"></i> 38g Protein | ~460 Kcal</span>
+                                <img src="assets/images/menu/chicken_mashwi_chicken_salad.jpg" alt="Chicken Salad" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Chicken Salad</h4>
+                                <p>High-protein meal of tender flame-roasted chicken over crisp mixed greens, cucumbers, and zesty light dressing.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">38g Protein</span>
+                                    <span class="mini-tag">~460 Kcal</span>
+                                    <span class="mini-tag">Fitness Choice</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 600</span>
+                                <button class="add-to-cart-btn" data-name="Chicken Salad" data-price="600"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Fatush Salad -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-leaf-line"></i> Fresh & Crisp</span>
+                                <img src="assets/images/menu/chicken_mashwi_fattoush.jpg" alt="Fatush Salad" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Fatush Salad</h4>
+                                <p>Traditional crisp Levantine salad with fresh cucumbers, juicy tomatoes, radishes, crispy toasted pita & tangy sumac.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Crispy Pita Chips</span>
+                                    <span class="mini-tag">Tangy Sumac</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 300</span>
+                                <button class="add-to-cart-btn" data-name="Fatush Salad" data-price="300"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 6: Beverages -->
+                <div class="menu-category-section" data-category="beverages">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-cup-fill"></i> Beverages</h3>
+                        <p class="category-subtitle">Chilled soft drinks and pure bottled mineral water.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Cola / Sprite 350ml -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-drop-line"></i> 350 ml</span>
+                                <img src="assets/images/menu/chicken_mashwi_soft_drinks.jpg" alt="Cola / Sprite 350ml" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Cola / Sprite (350 ml)</h4>
+                                <p>Ice-cold refreshing soft drink can/bottle.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chilled</span>
+                                    <span class="mini-tag">350 ml</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 100</span>
+                                <button class="add-to-cart-btn" data-name="Cola / Sprite (350ml)" data-price="100"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Cola / Sprite 500ml -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-drop-line"></i> 500 ml</span>
+                                <img src="assets/images/menu/chicken_mashwi_soft_drinks.jpg" alt="Cola / Sprite 500ml" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Cola / Sprite (500 ml)</h4>
+                                <p>Ice-cold refreshing regular bottle.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Chilled</span>
+                                    <span class="mini-tag">500 ml</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 150</span>
+                                <button class="add-to-cart-btn" data-name="Cola / Sprite (500ml)" data-price="150"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Cola / Sprite 1.5L -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-team-line"></i> 1.5 Litre (Family)</span>
+                                <img src="assets/images/menu/chicken_mashwi_soft_drinks.jpg" alt="Cola / Sprite 1.5L" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Cola / Sprite (1.5 L)</h4>
+                                <p>Large family sharing bottle.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Family Size</span>
+                                    <span class="mini-tag">1.5 Litre</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 250</span>
+                                <button class="add-to-cart-btn" data-name="Cola / Sprite (1.5L)" data-price="250"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Water Small -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-drop-fill"></i> Small</span>
+                                <img src="assets/images/menu/chicken_mashwi_water.jpg" alt="Mineral Water Small" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Mineral Water (Small)</h4>
+                                <p>Pure bottled chilled drinking water (Small).</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Pure & Crisp</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 60</span>
+                                <button class="add-to-cart-btn" data-name="Mineral Water (Small)" data-price="60"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Water Big -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-drop-fill"></i> Big</span>
+                                <img src="assets/images/menu/chicken_mashwi_water.jpg" alt="Mineral Water Big" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Mineral Water (Big)</h4>
+                                <p>Pure bottled drinking water large bottle (Big).</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Large Bottle</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 120</span>
+                                <button class="add-to-cart-btn" data-name="Mineral Water (Big)" data-price="120"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: The Mashwi Quality & Secret - Yellow (2) -->
+        <section id="quality" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (2).png');">
+            <div class="glass-card wide-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_carrying_tray.png" class="mascot top-right-mascot" alt="Quality Chicken" loading="lazy" decoding="async">
+                <img src="assets/images/chicken_sneaking_food.png" class="mascot bottom-left-mascot" alt="Sneaking Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">The Mashwi Quality</h2>
+                <h3>Pure Ingredients • Authentic Arabic Spices</h3>
+                <p>We pride ourselves on 100% wholesome cooking. No artificial food colors, no heavy oils, just the pure traditional Arabian grill experience.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <i class="ri-fire-fill"></i>
+                        <h4>Charcoal Flame Roasted</h4>
+                        <p>Rotisserie cooked over genuine open charcoal, rendering the skin crisp while sealing in all the tender natural juices.</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="ri-heart-pulse-fill"></i>
+                        <h4>High Protein & Clean</h4>
+                        <p>Real lean chicken breast and cuts packing up to 38g of protein per serving with light, fresh Levantine salads.</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="ri-plant-fill"></i>
+                        <h4>Signature Arabian Spices</h4>
+                        <p>Hand-ground sumac, cumin, smoked Spanish paprika, and fresh garlic mayo whipped fresh in our kitchen every morning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Fast Delivery & Party Catering - White (3) -->
+        <section id="delivery" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (3).png');">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_bike_delivery.png" class="mascot top-center-mascot" style="width: 140px; top: -75px;" alt="Fast Delivery Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">Fast Delivery & Party Catering</h2>
+                <h3>Hot, Fresh, & Right to Your Door</h3>
+                <p>Craving rotisserie chicken at home or hosting a feast with family & friends? We deliver piping hot Mashwi platters across Garden Town, Gulberg, Model Town, and all Lahore.</p>
+                <div class="hero-btns" style="justify-content: center; margin-top: 1.5rem;">
+                    <a href="https://wa.me/923399978999" target="_blank" class="btn-primary" style="background: #25D366; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);"><i class="ri-whatsapp-line"></i> Order on WhatsApp</a>
+                    <a href="tel:03399978999" class="btn-secondary"><i class="ri-phone-line"></i> Call 033-999-78-999</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Customer Reviews - Yellow (3) -->
+        <section id="reviews" class="content-section scroll-reveal" style="background-image: url('assets/images/section yellow (3).png');">
+            <div class="glass-card wide-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_party_celebrate.png" class="mascot top-right-mascot" alt="Celebrating Customers" loading="lazy" decoding="async">
+                <img src="assets/images/chicken_sleepy_food.png" class="mascot bottom-left-mascot" alt="Food Coma Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">Good Food, Good Mood</h2>
+                <h3>Loved by Foodies in Lahore</h3>
+                <p>Here is what our happy customers have to say about the authentic Chicken Mashwi taste.</p>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </div>
+                        <p>"The most authentic rotisserie charcoal chicken in Lahore! The Bukhari rice and daqoos sauce are out of this world."</p>
+                        <div class="review-author">— Hamza R., Garden Town</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </div>
+                        <p>"That Arabic Chicken Wrap is unbelievable value. Real tahini, tender juicy meat, and garlic mayo that hits just right."</p>
+                        <div class="review-author">— Ayesha K., Gulberg</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </div>
+                        <p>"Ordered the Full Chicken for our family dinner. Perfectly cooked, crispy golden skin, super juicy inside. 10/10 recommended!"</p>
+                        <div class="review-author">— Bilal S., Model Town</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Location & Visit Us - White (4) -->
+        <section id="contact" class="content-section scroll-reveal" style="background-image: url('assets/images/section white (4).png'); padding-bottom: 7rem;">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_pointing_cta.png" class="mascot bottom-right-mascot" alt="Pointing Chicken" loading="lazy" decoding="async">
+                <h2 class="section-title">Visit Us in Lahore</h2>
+                <h3>Barkat Market, Garden Town</h3>
+                <p style="margin-bottom: 1rem;"><strong>Address:</strong> Barkat Market, Commercial Area, Garden Town, Lahore, Pakistan.</p>
+                <p style="margin-bottom: 1rem;"><strong>Timings:</strong> 12:00 PM – 2:00 AM Daily</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Phone / WhatsApp:</strong> <a href="tel:03399978999" style="color: var(--primary-color); font-weight: 800; text-decoration: none;">033-999-78-999</a> &nbsp;|&nbsp; <strong>Instagram:</strong> <a href="https://instagram.com/chickenmashwi" target="_blank" style="color: var(--primary-color); font-weight: 800; text-decoration: none;">@chickenmashwi</a></p>
+                <div class="hero-btns" style="justify-content: center;">
+                    <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-primary"><i class="ri-map-pin-line"></i> Open in Google Maps</a>
+                    <a href="https://wa.me/923399978999" target="_blank" class="btn-secondary" style="background: #25D366; color: white; border-color: #25D366;"><i class="ri-whatsapp-line"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/images/Logo.jpeg" alt="Chicken Mashwi Logo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid rgba(255,255,255,0.2);" loading="lazy" decoding="async">
+                <p><strong>Good Food, Good Mood</strong><br>The Taste of Real Arabia. Slow flame roasted perfection in Lahore.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Explore</h4>
+                    <a href="#menu">Online Menu</a>
+                    <a href="menu.html" target="_blank">Printable Menu Card</a>
+                    <a href="#about">Our Story</a>
+                    <a href="https://maps.google.com/?cid=7872371147936234528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Google Maps</a>
+                </div>
+                <div class="link-column">
+                    <h4>Contact & Orders</h4>
+                    <a href="tel:03399978999"><i class="ri-phone-line"></i> 033-999-78-999</a>
+                    <a href="https://wa.me/923399978999" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp Order</a>
+                    <a href="https://instagram.com/chickenmashwi" target="_blank"><i class="ri-instagram-line"></i> @chickenmashwi</a>
+                    <a href="#"><i class="ri-map-pin-line"></i> Barkat Market, Garden Town, Lahore</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chicken Mashwi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Slide-out Cart -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Order 🍟</h2>
+            <button class="close-btn" id="close-cart"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be injected here via JS -->
+            <div class="empty-cart-msg">Your cart is empty! Go add some boldness.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total</span>
+                <span id="cart-total">Rs. 0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <!-- WhatsApp Checkout Modal -->
+    <div class="checkout-modal-overlay" id="checkout-modal">
+        <div class="checkout-modal-content">
+            <button class="close-modal" id="close-modal"><i class="ri-close-line"></i></button>
+            <h2>Complete Your Order</h2>
+            <p>Enter your details below to send your order directly to our WhatsApp.</p>
+            <form id="checkout-form">
+                <div class="input-group">
+                    <label for="order-name">Full Name</label>
+                    <input type="text" id="order-name" required placeholder="John Doe">
+                </div>
+                <div class="input-group">
+                    <label for="order-phone">Phone Number</label>
+                    <input type="tel" id="order-phone" required placeholder="03XX-XXXXXXX">
+                </div>
+                <div class="input-group">
+                    <label for="order-address">Delivery Address</label>
+                    <textarea id="order-address" required placeholder="Apartment, Street, Area..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="order-notes">Special Notes (Optional)</label>
+                    <textarea id="order-notes" placeholder="Extra spicy, extra Daqoos..."></textarea>
+                </div>
+                <button type="submit" class="whatsapp-btn"><i class="ri-whatsapp-line"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

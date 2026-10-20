@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Mashwi - Contact & Location</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts for GenZ Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/Logo.jpeg" alt="Chicken Mashwi Logo"></a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="index.html#about" class="nav-btn">Our Story</a>
+                <a href="index.html#ingredients" class="nav-btn">The Method</a>
+                <a href="index.html#menu" class="nav-btn">Menu</a>
+                <a href="index.html#quality" class="nav-btn">Quality</a>
+                <a href="index.html#delivery" class="nav-btn">Delivery</a>
+                <a href="contact.html" class="nav-btn">Contact Us</a>
+                <a href="index.html#menu" class="nav-btn primary-nav-btn">Order Now</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-btn" title="View Cart">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <main>
+        <!-- Contact Page Header: Yellow (1) -->
+        <section class="content-section" style="background-image: url('assets/images/section yellow (1).png'); padding-top: 150px;">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_bike_delivery.png" class="mascot top-center-mascot" alt="Delivery Chicken">
+                <h2 class="section-title">Contact Us</h2>
+                <h3>We're always here for you</h3>
+                <p>Have questions, want to cater an event, or checking on an order? We'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Contact Info: White (1) -->
+        <section class="content-section scroll-reveal" style="background-image: url('assets/images/section white (1).png'); padding-bottom: 8rem;">
+            <div class="glass-card text-center" style="position: relative;">
+                <img src="assets/images/chicken_pointing_cta.png" class="mascot bottom-right-mascot" alt="Mascot Pointing">
+                <h2 class="section-title">Location & Contact</h2>
+                <h3>Good Food, Good Mood</h3>
+                <p><strong>Address:</strong> Barkat Market, Commercial Area, Garden Town, Lahore, Pakistan.</p>
+                <p><strong>Phone / WhatsApp:</strong> <a href="tel:03399978999" style="color: var(--primary-color); text-decoration: none; font-weight: 700;">033-999-78-999</a> &nbsp;|&nbsp; <a href="https://wa.me/923399978999" target="_blank" style="color: #25D366; text-decoration: none; font-weight: 700;"><i class="ri-whatsapp-fill"></i> Chat on WhatsApp</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/chickenmashwi" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 700;">@chickenmashwi</a></p>
+                <p><strong>Email:</strong> hello@chickenmashwi.com</p>
+                <br>
+                <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-primary" style="margin-top: 1rem;"><i class="ri-map-pin-line"></i> Open in Google Maps</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/images/Logo.jpeg" alt="Chicken Mashwi Logo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid rgba(255,255,255,0.2);">
+                <p><strong>Good Food, Good Mood</strong><br>The Taste of Real Arabia. Slow flame roasted perfection in Lahore.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Explore</h4>
+                    <a href="index.html#menu">Online Menu</a>
+                    <a href="menu.html" target="_blank">Printable Menu Card</a>
+                    <a href="index.html#about">Our Story</a>
+                    <a href="https://maps.google.com/?cid=7872371147936234528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank">Google Maps</a>
+                </div>
+                <div class="link-column">
+                    <h4>Contact & Orders</h4>
+                    <a href="tel:03399978999"><i class="ri-phone-line"></i> 033-999-78-999</a>
+                    <a href="https://wa.me/923399978999" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp Order</a>
+                    <a href="https://instagram.com/chickenmashwi" target="_blank"><i class="ri-instagram-line"></i> @chickenmashwi</a>
+                    <a href="#"><i class="ri-map-pin-line"></i> Barkat Market, Garden Town, Lahore</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chicken Mashwi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Slide-out Cart -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Order 🍟</h2>
+            <button class="close-btn" id="close-cart"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be injected here via JS -->
+            <div class="empty-cart-msg">Your cart is empty! Go add some boldness.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total</span>
+                <span id="cart-total">Rs. 0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <!-- WhatsApp Checkout Modal -->
+    <div class="checkout-modal-overlay" id="checkout-modal">
+        <div class="checkout-modal-content">
+            <button class="close-modal" id="close-modal"><i class="ri-close-line"></i></button>
+            <h2>Complete Your Order</h2>
+            <p>Enter your details below to send your order directly to our WhatsApp.</p>
+            <form id="checkout-form">
+                <div class="input-group">
+                    <label for="order-name">Full Name</label>
+                    <input type="text" id="order-name" required placeholder="John Doe">
+                </div>
+                <div class="input-group">
+                    <label for="order-phone">Phone Number</label>
+                    <input type="tel" id="order-phone" required placeholder="03XX-XXXXXXX">
+                </div>
+                <div class="input-group">
+                    <label for="order-address">Delivery Address</label>
+                    <textarea id="order-address" required placeholder="Apartment, Street, Area..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="order-notes">Special Notes (Optional)</label>
+                    <textarea id="order-notes" placeholder="Extra spicy, extra Daqoos..."></textarea>
+                </div>
+                <button type="submit" class="whatsapp-btn"><i class="ri-whatsapp-line"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
