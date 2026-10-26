@@ -365,8 +365,8 @@ p, span, a, button {
 
 /* Content Sections */
 .content-section {
-    padding: 6rem 10%;
-    min-height: 100vh;
+    padding: clamp(3.5rem, 6vw, 6rem) clamp(1rem, 5vw, 8%);
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -375,31 +375,44 @@ p, span, a, button {
     background-repeat: no-repeat;
     position: relative;
     z-index: 10;
+    opacity: 1; /* Always visible by default - never blank or missing! */
 }
 
+/* Dedicated Section Background Classes */
+.bg-hero { background-image: url('../assets/images/Hero.jpg'); }
+.bg-section-white-1 { background-image: url('../assets/images/section-white-1.jpg'); }
+.bg-section-yellow-1 { background-image: url('../assets/images/section-yellow-1.jpg'); }
+.bg-section-white-2 { background-image: url('../assets/images/section-white-2.jpg'); }
+.bg-section-yellow-2 { background-image: url('../assets/images/section-yellow-2.jpg'); }
+.bg-section-white-3 { background-image: url('../assets/images/section-white-3.jpg'); }
+.bg-section-yellow-3 { background-image: url('../assets/images/section-yellow-3.jpg'); }
+.bg-section-white-4 { background-image: url('../assets/images/section-white-4.jpg'); }
+
 .glass-card {
-    background: rgba(252, 249, 242, 0.95);
-    padding: 3rem;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    padding: clamp(2rem, 4vw, 3.2rem);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-hover);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    max-width: 700px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    max-width: 740px;
     width: 100%;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .glass-card.wide-card {
-    max-width: 1000px;
+    max-width: 1100px;
 }
 .glass-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
 }
 
 /* Warm Light Yellow / Amber Menu Theme */
 #menu .glass-card {
-    background: linear-gradient(135deg, rgba(255, 249, 232, 0.98) 0%, rgba(254, 244, 215, 0.98) 50%, rgba(252, 238, 200, 0.98) 100%);
-    border: 2px solid rgba(212, 160, 23, 0.35);
-    box-shadow: 0 20px 50px rgba(180, 115, 20, 0.14);
+    background: rgba(255, 253, 247, 0.92);
+    border: 1.5px solid rgba(212, 160, 23, 0.35);
+    box-shadow: 0 20px 50px rgba(180, 115, 20, 0.12);
 }
 
 #menu .menu-grid-card {
@@ -431,21 +444,27 @@ p, span, a, button {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
     margin-top: 2rem;
 }
 
 .menu-grid-card {
     background: var(--card-white);
-    padding: 2rem;
+    padding: 1.6rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
-    transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.menu-grid-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 36px rgba(255, 71, 0, 0.14);
 }
 
 .menu-item-img {
@@ -532,107 +551,97 @@ p, span, a, button {
     transform: scale(1.05);
 }
 
-/* Scroll Reveal & Animations */
+/* Smooth Section Reveal (Non-blocking: safe fallback by default) */
 .scroll-reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-.scroll-reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 769px) {
+    .scroll-reveal:not(.active) {
+        opacity: 0.25;
+        transform: translateY(20px);
+    }
+    .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Hero Section Staggered Entrance */
 @keyframes slideUpFade {
-    0% { opacity: 0; transform: translateY(40px); }
+    0% { opacity: 0; transform: translateY(30px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero-content h1 {
     opacity: 0;
-    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 .hero-content p {
     opacity: 0;
-    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards;
 }
-.hero-content .btn-primary {
+.hero-content .hero-btns {
     opacity: 0;
-    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
 }
 
-/* Staggered Pop-In for Menu Cards using Transitions (allows hover to work!) */
-.menu-grid-card {
-    opacity: 0;
-    transform: translateY(40px) scale(0.9);
-    /* Transition is defined up above in the main class, we just override duration here */
-    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.scroll-reveal.active .menu-grid-card {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.scroll-reveal.active .menu-grid-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-hover);
-    transition-delay: 0s !important;
-    transition-duration: 0.3s !important;
-}
-
-/* Mascot Styles & Animations */
+/* Mascot Styles & GPU-accelerated 3D Animations */
 .mascot {
     position: absolute;
     z-index: 10;
     pointer-events: none;
     animation: floatMascot 4s ease-in-out infinite;
-    will-change: transform;
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
 @keyframes floatMascot {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(2deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -10px, 0); }
 }
 
 .top-right-mascot {
-    top: -50px;
-    right: -40px;
-    width: 140px;
+    top: -45px;
+    right: -35px;
+    width: 130px;
 }
 .bottom-left-mascot {
-    bottom: -60px;
-    left: -50px;
-    width: 160px;
+    bottom: -50px;
+    left: -45px;
+    width: 145px;
 }
 .top-center-mascot {
-    top: -90px;
+    top: -85px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
+    transform: translate3d(-50%, 0, 0);
+    width: 170px;
     animation: floatMascotCenter 4s ease-in-out infinite;
 }
 @keyframes floatMascotCenter {
-    0% { transform: translate(-50%, 0px); }
-    50% { transform: translate(-50%, -15px); }
-    100% { transform: translate(-50%, 0px); }
+    0%, 100% { transform: translate3d(-50%, 0, 0); }
+    50% { transform: translate3d(-50%, -10px, 0); }
 }
 .bottom-right-mascot {
-    bottom: -30px;
-    right: -30px;
-    width: 150px;
+    bottom: -25px;
+    right: -25px;
+    width: 140px;
 }
 
-/* Stagger delays for up to 6 cards in a grid */
-.scroll-reveal.active .menu-grid-card:nth-child(1) { transition-delay: 0.1s; }
-.scroll-reveal.active .menu-grid-card:nth-child(2) { transition-delay: 0.25s; }
-.scroll-reveal.active .menu-grid-card:nth-child(3) { transition-delay: 0.4s; }
-.scroll-reveal.active .menu-grid-card:nth-child(4) { transition-delay: 0.55s; }
-.scroll-reveal.active .menu-grid-card:nth-child(5) { transition-delay: 0.7s; }
-.scroll-reveal.active .menu-grid-card:nth-child(6) { transition-delay: 0.85s; }
+@media (max-width: 992px) {
+    .top-right-mascot,
+    .bottom-left-mascot,
+    .bottom-right-mascot {
+        display: none !important;
+    }
+    .top-center-mascot {
+        width: 105px !important;
+        top: -50px;
+    }
+}
 
 /* Slide-out Cart */
 .cart-overlay {

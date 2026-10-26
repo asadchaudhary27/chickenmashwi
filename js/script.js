@@ -188,32 +188,40 @@ function updateCartUI() {
     cartBadge.innerText = totalItems;
 }
 
-// --- Scroll Reveal Logic ---
-const scrollElements = document.querySelectorAll('.scroll-reveal');
+// --- High-Performance Butter-Smooth Scroll & Section Revealer ---
+const initScrollReveal = () => {
+    const revealElements = document.querySelectorAll('.scroll-reveal, .content-section');
+    
+    // Always activate hero immediately
+    const hero = document.querySelector('.hero');
+    if (hero) hero.classList.add('active');
 
-const elementInView = (el, dividend = 1) => {
-    const elementTop = el.getBoundingClientRect().top;
-    return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target); // Stop tracking once visible -> 0 CPU overhead!
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.05
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    } else {
+        // Fallback for older browsers: show everything immediately
+        revealElements.forEach(el => el.classList.add('active'));
+    }
 };
 
-const displayScrollElement = (element) => {
-    element.classList.add('active');
-};
-
-const handleScrollAnimation = () => {
-    scrollElements.forEach((el) => {
-        if (elementInView(el, 1.25)) {
-            displayScrollElement(el);
-        }
-    });
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+    initScrollReveal();
 }
-
-// Check on load
-window.addEventListener('load', handleScrollAnimation);
-// Check on scroll
-window.addEventListener('scroll', () => {
-    handleScrollAnimation();
-});
 
 // --- WhatsApp Checkout Logic ---
 const checkoutBtn = document.querySelector('.checkout-btn');
