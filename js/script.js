@@ -698,8 +698,8 @@ const qrConfigs = {
         img: 'assets/images/qr-menu.png',
         title: 'Scan for Digital Menu & Order',
         desc: 'Scan with your mobile camera to open our live digital menu, pick your favorite dishes, and order directly on WhatsApp.',
-        link: 'https://asadchaudhary27.github.io/chickenmashwi/#menu',
-        linkText: 'Open Digital Menu (1-Click)',
+        link: '#menu',
+        linkText: 'Go to Online Menu & Order (Instant)',
         downloadName: 'Chicken-Mashwi-Menu-QR.png'
     },
     review: {
@@ -749,11 +749,23 @@ function switchQR(type) {
     if (qrDisplayDesc) qrDisplayDesc.textContent = config.desc;
     if (qrDirectLink) {
         qrDirectLink.href = config.link;
-        qrDirectLink.innerHTML = `<i class="ri-external-link-line"></i> ${config.linkText}`;
+        if (config.link.startsWith('#')) {
+            qrDirectLink.removeAttribute('target');
+            qrDirectLink.innerHTML = `<i class="ri-arrow-down-line"></i> ${config.linkText}`;
+        } else {
+            qrDirectLink.setAttribute('target', '_blank');
+            qrDirectLink.innerHTML = `<i class="ri-external-link-line"></i> ${config.linkText}`;
+        }
     }
     if (downloadQrBtn) {
         downloadQrBtn.href = config.img;
         downloadQrBtn.download = config.downloadName;
+    }
+
+    // Toggle menu-specific quick order preview inside modal
+    const qrQuickOrderEl = document.getElementById('qr-modal-quick-order');
+    if (qrQuickOrderEl) {
+        qrQuickOrderEl.style.display = (type === 'menu') ? 'block' : 'none';
     }
 }
 
@@ -805,6 +817,32 @@ qrTabBtns.forEach(btn => {
 if (printQrBtn) {
     printQrBtn.addEventListener('click', () => {
         window.print();
+    });
+}
+
+// Direct jump to menu from QR Modal
+if (qrDirectLink) {
+    qrDirectLink.addEventListener('click', (e) => {
+        const href = qrDirectLink.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            closeQrModal();
+            const targetEl = document.querySelector(href);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+}
+
+const qrSeeAllBtn = document.getElementById('qr-modal-see-all-btn');
+if (qrSeeAllBtn) {
+    qrSeeAllBtn.addEventListener('click', () => {
+        closeQrModal();
+        const menuEl = document.getElementById('menu');
+        if (menuEl) {
+            menuEl.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 }
 

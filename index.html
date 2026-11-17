@@ -1327,8 +1327,52 @@
                     <div class="qr-display-info">
                         <h3 id="qr-display-title">Scan for Digital Menu & Order</h3>
                         <p id="qr-display-desc">Scan with your mobile camera to open our live digital menu, pick your favorite dishes, and order directly on WhatsApp.</p>
-                        <a id="qr-direct-link" href="#menu" class="qr-direct-link-btn" target="_blank"><i class="ri-external-link-line"></i> Open Digital Menu (1-Click)</a>
+                        <a id="qr-direct-link" href="#menu" class="qr-direct-link-btn"><i class="ri-arrow-down-line"></i> Go to Online Menu & Order (Instant)</a>
                     </div>
+                </div>
+
+                <!-- Quick Table Ordering Preview Inside QR Modal -->
+                <div class="qr-modal-quick-order" id="qr-modal-quick-order">
+                    <div class="qr-quick-order-title">
+                        <span><i class="ri-fire-fill" style="color: #ff4700;"></i> Popular Dishes • Order from Here</span>
+                    </div>
+                    <div class="qr-quick-items-list">
+                        <div class="qr-quick-item-row">
+                            <img src="assets/images/menu/chicken_mashwi_full_with_rice.jpg" alt="Full Chicken" class="qr-item-thumb" loading="lazy">
+                            <div class="qr-item-meta">
+                                <span class="qr-item-name">Full Chicken (with Rice)</span>
+                                <span class="qr-item-price">Rs. 2,500</span>
+                            </div>
+                            <button type="button" class="add-to-cart-btn" data-name="Full Chicken (with Rice)" data-price="2500"><i class="ri-add-line"></i> Add</button>
+                        </div>
+                        <div class="qr-quick-item-row">
+                            <img src="assets/images/menu/chicken_mashwi_half_with_rice.jpg" alt="Half Chicken" class="qr-item-thumb" loading="lazy">
+                            <div class="qr-item-meta">
+                                <span class="qr-item-name">Half Chicken (with Rice)</span>
+                                <span class="qr-item-price">Rs. 1,350</span>
+                            </div>
+                            <button type="button" class="add-to-cart-btn" data-name="Half Chicken (with Rice)" data-price="1350"><i class="ri-add-line"></i> Add</button>
+                        </div>
+                        <div class="qr-quick-item-row">
+                            <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Arabian Soup" class="qr-item-thumb" loading="lazy">
+                            <div class="qr-item-meta">
+                                <span class="qr-item-name">Arabian Chicken Mashwi Soup</span>
+                                <span class="qr-item-price">Rs. 250</span>
+                            </div>
+                            <button type="button" class="add-to-cart-btn" data-name="Arabian Chicken Mashwi Soup (Single)" data-price="250"><i class="ri-add-line"></i> Add</button>
+                        </div>
+                        <div class="qr-quick-item-row">
+                            <img src="assets/images/menu/chicken_mashwi_arabic_wrap.jpg" alt="Arabic Wrap" class="qr-item-thumb" loading="lazy">
+                            <div class="qr-item-meta">
+                                <span class="qr-item-name">Arabic Chicken Wrap</span>
+                                <span class="qr-item-price">Rs. 400</span>
+                            </div>
+                            <button type="button" class="add-to-cart-btn" data-name="Arabic Chicken Wrap" data-price="400"><i class="ri-add-line"></i> Add</button>
+                        </div>
+                    </div>
+                    <button type="button" class="qr-scroll-to-menu-btn" id="qr-modal-see-all-btn">
+                        <i class="ri-restaurant-line"></i> Browse All 25 Menu Items & Customize
+                    </button>
                 </div>
             </div>
 
