@@ -2097,3 +2097,569 @@ p, span, a, button {
     }
 }
 
+/* ==========================================================================
+   Add-to-Cart Flying Animation & Add-ons / Customization Architecture
+   ========================================================================== */
+
+/* Card Action Buttons Group */
+.card-action-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.customize-btn {
+    background: #fff6ee;
+    color: var(--primary-color);
+    border: 1.5px solid #ffcca3;
+    padding: 0.65rem 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(255, 71, 0, 0.08);
+}
+
+.customize-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 71, 0, 0.28);
+}
+
+.customize-btn:active {
+    transform: scale(0.96);
+}
+
+.add-to-cart-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.add-to-cart-btn.adding {
+    background: #16a34a !important;
+    color: #ffffff !important;
+    transform: scale(0.96);
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4) !important;
+}
+
+/* Flying Parabolic Item Particle */
+.fly-item-clone {
+    position: fixed;
+    z-index: 10005;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-color, #ff4700);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 10px 25px rgba(255, 71, 0, 0.5);
+    border: 2px solid #ffffff;
+    transition: transform 0.65s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.65s ease, filter 0.65s ease;
+    will-change: transform, opacity;
+}
+
+/* Cart Bump Animations */
+@keyframes cartBumpAnimation {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.35) rotate(-10deg); }
+    50% { transform: scale(1.2) rotate(8deg); }
+    75% { transform: scale(1.08) rotate(-4deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.cart-bump {
+    animation: cartBumpAnimation 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+@keyframes badgePopAnimation {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.7); background: #16a34a !important; }
+    80% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.badge-pop {
+    animation: badgePopAnimation 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Floating Cart Toast Notification */
+.cart-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(18, 18, 18, 0.94);
+    color: #ffffff;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10002;
+    transform: translateY(110px) scale(0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    max-width: 90vw;
+}
+
+.cart-toast.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.toast-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.toast-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.toast-body strong {
+    font-size: 0.92rem;
+    color: #fff;
+}
+
+.toast-body span {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.toast-btn {
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.toast-btn:hover {
+    background: #ff5e1e;
+    transform: scale(1.05);
+}
+
+/* Quick Add-ons Strip in Cart Drawer */
+.cart-quick-addons {
+    background: #faf6ed;
+    border-top: 1px dashed #e2d6be;
+    border-bottom: 1px dashed #e2d6be;
+    padding: 0.9rem 1.2rem;
+}
+
+.quick-addons-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quick-addons-pills {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+
+.quick-addon-pill {
+    background: #ffffff;
+    border: 1px solid #dcd1bb;
+    color: #222;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.quick-addon-pill:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* Cart Item Add-ons Tags */
+.item-addons-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 4px 0;
+}
+
+.addon-tag {
+    background: #f1ede2;
+    color: #444;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border-left: 2px solid var(--primary-color);
+}
+
+.item-instruction-tag {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+/* Add-on Customization Modal */
+.addon-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 1rem;
+}
+
+.addon-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.addon-modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.35);
+    transform: scale(0.92) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.addon-modal-overlay.active .addon-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.addon-modal-header {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: linear-gradient(135deg, #fffbf2 0%, #fdf5e4 100%);
+    border-bottom: 1px solid #ede3ce;
+    align-items: center;
+}
+
+.addon-modal-img {
+    width: 82px;
+    height: 82px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 2px solid var(--gold, #d4af37);
+    flex-shrink: 0;
+}
+
+.addon-modal-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.addon-modal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 71, 0, 0.12);
+    color: var(--primary-color);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 4px;
+}
+
+.addon-modal-info h3 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #111;
+    margin: 2px 0 4px;
+    line-height: 1.2;
+}
+
+.addon-modal-info p {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.35;
+    margin: 0 0 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.addon-modal-base {
+    font-size: 0.88rem;
+    color: #444;
+}
+
+.addon-modal-base strong {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.addon-modal-body {
+    padding: 1.2rem 1.4rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.addon-body-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.addons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 1.2rem;
+}
+
+.addon-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0.9rem;
+    border-radius: 12px;
+    border: 1.5px solid #eee;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.addon-row:hover {
+    border-color: var(--primary-color);
+    background: #fffaf5;
+}
+
+.addon-row.selected {
+    border-color: var(--primary-color);
+    background: #fff4ea;
+}
+
+.addon-row-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.addon-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.addon-row-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.addon-price-badge {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    background: #ffe8d6;
+    padding: 3px 9px;
+    border-radius: 20px;
+}
+
+.addon-special-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 0.5rem;
+}
+
+.addon-special-notes label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.addon-special-notes input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.addon-special-notes input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 71, 0, 0.1);
+}
+
+.addon-modal-footer {
+    padding: 1rem 1.4rem;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.addon-qty-box {
+    display: inline-flex;
+    align-items: center;
+    background: #f1ede2;
+    border-radius: 50px;
+    padding: 4px 8px;
+    gap: 8px;
+}
+
+.addon-qty-btn {
+    background: #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+}
+
+.addon-qty-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.addon-qty-display {
+    font-size: 1rem;
+    font-weight: 800;
+    min-width: 20px;
+    text-align: center;
+    color: #111;
+}
+
+.addon-submit-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.85rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 50px;
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.addon-submit-btn:hover {
+    background: #e03e00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 71, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+    .card-action-btns {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .customize-btn, .add-to-cart-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.86rem;
+    }
+    .addon-modal-header {
+        padding: 1rem;
+    }
+    .addon-modal-img {
+        width: 65px;
+        height: 65px;
+    }
+    .addon-modal-body {
+        padding: 1rem;
+    }
+    .addon-modal-footer {
+        padding: 0.9rem 1rem;
+    }
+}
+

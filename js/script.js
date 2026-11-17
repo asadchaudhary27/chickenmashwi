@@ -93,7 +93,289 @@ if (cartBtn) cartBtn.addEventListener('click', openCart);
 if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
 if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
-// Add to Cart with Event Delegation & Double-Click Debounce
+// --- Add-to-Cart Flying Parabolic Animation ---
+function flyToCartAnimation(startElement) {
+    const cartTarget = document.querySelector('.floating-cart-btn') || document.getElementById('cart-btn');
+    if (!startElement || !cartTarget) return;
+
+    const startRect = startElement.getBoundingClientRect();
+    const targetRect = cartTarget.getBoundingClientRect();
+
+    const clone = document.createElement('div');
+    clone.className = 'fly-item-clone';
+    clone.innerHTML = '<i class="ri-shopping-bag-3-fill"></i>';
+    clone.style.left = `${startRect.left + (startRect.width / 2) - 24}px`;
+    clone.style.top = `${startRect.top + (startRect.height / 2) - 24}px`;
+    document.body.appendChild(clone);
+
+    // Force DOM layout
+    clone.getBoundingClientRect();
+
+    const deltaX = (targetRect.left + (targetRect.width / 2)) - (startRect.left + (startRect.width / 2));
+    const deltaY = (targetRect.top + (targetRect.height / 2)) - (startRect.top + (startRect.height / 2));
+
+    clone.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.35)`;
+    clone.style.opacity = '0.3';
+
+    // Mobile haptic vibration if supported
+    if (navigator.vibrate) {
+        try { navigator.vibrate(40); } catch(e) {}
+    }
+
+    setTimeout(() => {
+        clone.remove();
+
+        // Bounce cart button
+        cartTarget.classList.remove('cart-bump');
+        void cartTarget.offsetWidth;
+        cartTarget.classList.add('cart-bump');
+
+        // Pop cart badge
+        const badge = document.getElementById('cart-badge');
+        if (badge) {
+            badge.classList.remove('badge-pop');
+            void badge.offsetWidth;
+            badge.classList.add('badge-pop');
+        }
+
+        setTimeout(() => {
+            cartTarget.classList.remove('cart-bump');
+            if (badge) badge.classList.remove('badge-pop');
+        }, 500);
+    }, 650);
+}
+
+// --- Cart Toast Notification ---
+let toastTimeout;
+function showCartToast(title, desc) {
+    const toast = document.getElementById('cart-toast');
+    if (!toast) return;
+
+    const titleEl = document.getElementById('toast-title');
+    const descEl = document.getElementById('toast-desc');
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
+
+    toast.classList.add('active');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('active');
+    }, 3200);
+}
+
+const toastViewCartBtn = document.getElementById('toast-view-cart-btn');
+if (toastViewCartBtn) {
+    toastViewCartBtn.addEventListener('click', () => {
+        const toast = document.getElementById('cart-toast');
+        if (toast) toast.classList.remove('active');
+        openCart();
+    });
+}
+
+// --- Available Arabian Add-ons & Extras ---
+const AVAILABLE_ADDONS = [
+    { id: 'garlic-toum', name: 'Extra Garlic Toum Sauce', price: 50 },
+    { id: 'fresh-pita', name: 'Fresh Arabian Pita (Khubz)', price: 50 },
+    { id: 'mandi-rice-portion', name: 'Extra Spiced Mandi Rice', price: 150 },
+    { id: 'batata-harra-extra', name: 'Batata Harra (Arabic Potatoes)', price: 100 },
+    { id: 'arabian-pickles', name: 'Arabian Torshi Pickled Turnips', price: 50 },
+    { id: 'green-chutney-extra', name: 'Spicy Arabian Green Chutney', price: 30 },
+    { id: 'cheese-layer', name: 'Melted Cheese Topping', price: 100 },
+    { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 }
+];
+
+let currentModalItem = null;
+let currentModalQty = 1;
+let selectedModalAddons = [];
+
+function openAddonModal(name, basePrice, img, desc) {
+    currentModalItem = { name, basePrice: parseFloat(basePrice), img, desc };
+    currentModalQty = 1;
+    selectedModalAddons = [];
+
+    const modal = document.getElementById('addon-modal');
+    const titleEl = document.getElementById('addon-modal-title');
+    const descEl = document.getElementById('addon-modal-desc');
+    const basePriceEl = document.getElementById('addon-modal-base-price');
+    const imgEl = document.getElementById('addon-modal-img');
+    const noteEl = document.getElementById('addon-custom-note');
+    const qtyValEl = document.getElementById('addon-qty-val');
+    const addonsListEl = document.getElementById('addons-list');
+
+    if (titleEl) titleEl.textContent = name;
+    if (descEl) descEl.textContent = desc || 'Authentic slow flame Arabian specialty.';
+    if (basePriceEl) basePriceEl.textContent = `Rs. ${currentModalItem.basePrice.toLocaleString()}`;
+    if (imgEl && img) imgEl.src = img;
+    if (noteEl) noteEl.value = '';
+    if (qtyValEl) qtyValEl.textContent = currentModalQty;
+
+    // Render selectable add-on rows
+    if (addonsListEl) {
+        addonsListEl.innerHTML = AVAILABLE_ADDONS.map(addon => `
+            <label class="addon-row" data-id="${addon.id}">
+                <div class="addon-row-left">
+                    <input type="checkbox" class="addon-checkbox" value="${addon.id}" data-name="${addon.name}" data-price="${addon.price}">
+                    <span class="addon-row-name">${addon.name}</span>
+                </div>
+                <span class="addon-price-badge">+Rs. ${addon.price}</span>
+            </label>
+        `).join('');
+
+        addonsListEl.querySelectorAll('.addon-checkbox').forEach(cb => {
+            cb.addEventListener('change', () => {
+                const row = cb.closest('.addon-row');
+                if (cb.checked) {
+                    row.classList.add('selected');
+                } else {
+                    row.classList.remove('selected');
+                }
+                updateModalTotal();
+            });
+        });
+    }
+
+    updateModalTotal();
+    if (modal) modal.classList.add('active');
+}
+
+function updateModalTotal() {
+    if (!currentModalItem) return;
+    const checkboxes = document.querySelectorAll('#addons-list .addon-checkbox:checked');
+    let addonsTotal = 0;
+    selectedModalAddons = [];
+    checkboxes.forEach(cb => {
+        const p = parseFloat(cb.dataset.price);
+        addonsTotal += p;
+        selectedModalAddons.push({ name: cb.dataset.name, price: p });
+    });
+
+    const unitPrice = currentModalItem.basePrice + addonsTotal;
+    const grandTotal = unitPrice * currentModalQty;
+
+    const totalEl = document.getElementById('addon-modal-total-price');
+    if (totalEl) totalEl.textContent = `Rs. ${grandTotal.toLocaleString()}`;
+}
+
+// Modal Quantity Buttons
+const addonQtyMinus = document.getElementById('addon-qty-minus');
+const addonQtyPlus = document.getElementById('addon-qty-plus');
+const addonQtyVal = document.getElementById('addon-qty-val');
+
+if (addonQtyMinus) {
+    addonQtyMinus.addEventListener('click', () => {
+        if (currentModalQty > 1) {
+            currentModalQty--;
+            if (addonQtyVal) addonQtyVal.textContent = currentModalQty;
+            updateModalTotal();
+        }
+    });
+}
+
+if (addonQtyPlus) {
+    addonQtyPlus.addEventListener('click', () => {
+        currentModalQty++;
+        if (addonQtyVal) addonQtyVal.textContent = currentModalQty;
+        updateModalTotal();
+    });
+}
+
+// Close Addon Modal
+const closeAddonModalBtn = document.getElementById('close-addon-modal');
+const addonModalOverlay = document.getElementById('addon-modal');
+function closeAddonModal() {
+    if (addonModalOverlay) addonModalOverlay.classList.remove('active');
+}
+if (closeAddonModalBtn) closeAddonModalBtn.addEventListener('click', closeAddonModal);
+if (addonModalOverlay) {
+    addonModalOverlay.addEventListener('click', (e) => {
+        if (e.target === addonModalOverlay) closeAddonModal();
+    });
+}
+
+// Confirm Add Customized Item to Cart
+const addonConfirmBtn = document.getElementById('addon-confirm-btn');
+if (addonConfirmBtn) {
+    addonConfirmBtn.addEventListener('click', () => {
+        if (!currentModalItem) return;
+
+        const noteInput = document.getElementById('addon-custom-note');
+        const instructions = noteInput ? noteInput.value.trim() : '';
+
+        let addonsPrice = 0;
+        selectedModalAddons.forEach(a => addonsPrice += a.price);
+        const unitPrice = currentModalItem.basePrice + addonsPrice;
+
+        const addonKey = selectedModalAddons.map(a => a.name).sort().join('|');
+        const itemKey = `${currentModalItem.name}__${addonKey}__${instructions}`;
+
+        const existing = cart.find(item => item.id === itemKey);
+        if (existing) {
+            existing.quantity += currentModalQty;
+        } else {
+            cart.push({
+                id: itemKey,
+                name: currentModalItem.name,
+                basePrice: currentModalItem.basePrice,
+                price: unitPrice,
+                addons: [...selectedModalAddons],
+                instructions: instructions,
+                quantity: currentModalQty
+            });
+        }
+
+        updateCartUI();
+        flyToCartAnimation(addonConfirmBtn);
+        showCartToast(currentModalItem.name, `${currentModalQty}x with extras added to cart!`);
+        closeAddonModal();
+    });
+}
+
+// Event Delegation for Customize Buttons
+document.addEventListener('click', (e) => {
+    const custBtn = e.target.closest('.customize-btn');
+    if (!custBtn) return;
+
+    const name = custBtn.dataset.name;
+    const price = custBtn.dataset.price;
+    const img = custBtn.dataset.img;
+    const desc = custBtn.dataset.desc;
+
+    if (name && price) {
+        openAddonModal(name, price, img, desc);
+    }
+});
+
+// Event Delegation for Quick Add-on Pills in Cart Drawer
+document.addEventListener('click', (e) => {
+    const pill = e.target.closest('.quick-addon-pill');
+    if (!pill) return;
+
+    const name = pill.dataset.name;
+    const price = parseFloat(pill.dataset.price);
+    if (!name || isNaN(price)) return;
+
+    const itemKey = `addon_${name}`;
+    const existing = cart.find(item => item.id === itemKey);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            id: itemKey,
+            name: name,
+            basePrice: price,
+            price: price,
+            addons: [],
+            instructions: '',
+            quantity: 1
+        });
+    }
+
+    updateCartUI();
+    flyToCartAnimation(pill);
+    showCartToast(name, `Added side to order (+Rs. ${price})`);
+});
+
+// Standard Add to Cart with Event Delegation & Flying Animation
 document.addEventListener('click', (e) => {
     const btn = e.target.closest('.add-to-cart-btn');
     if (!btn) return;
@@ -104,27 +386,34 @@ document.addEventListener('click', (e) => {
     const price = parseFloat(btn.dataset.price);
     if (!name || isNaN(price)) return;
     
-    // Check if item exists
-    const existingItem = cart.find(item => item.name === name);
+    // Check if plain item exists
+    const itemKey = `standard_${name}`;
+    const existingItem = cart.find(item => item.id === itemKey || (item.name === name && (!item.addons || item.addons.length === 0) && !item.instructions));
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ name, price, quantity: 1 });
+        cart.push({
+            id: itemKey,
+            name: name,
+            basePrice: price,
+            price: price,
+            addons: [],
+            instructions: '',
+            quantity: 1
+        });
     }
     
     updateCartUI();
+    flyToCartAnimation(btn);
+    showCartToast(name, `Added to cart (Rs. ${price.toLocaleString()})`);
     
-    // Feedback animation
+    // Feedback animation on button
     btn.classList.add('adding');
     const originalContent = btn.innerHTML;
-    btn.innerHTML = '<i class="ri-check-line"></i> Added';
-    btn.style.background = 'var(--primary-color)';
-    btn.style.color = '#ffffff';
+    btn.innerHTML = '<i class="ri-check-line"></i> Added!';
     
     setTimeout(() => {
         btn.innerHTML = originalContent;
-        btn.style.background = '';
-        btn.style.color = '';
         btn.classList.remove('adding');
     }, 900);
 });
@@ -190,9 +479,24 @@ function updateCartUI() {
         
         const itemEl = document.createElement('div');
         itemEl.className = 'cart-item';
+        
+        // Addons mini tags
+        let addonsHtml = '';
+        if (item.addons && item.addons.length > 0) {
+            addonsHtml = `<div class="item-addons-tags">${item.addons.map(a => `<span class="addon-tag">+ ${a.name} (+Rs. ${a.price})</span>`).join('')}</div>`;
+        }
+
+        // Special instruction note
+        let noteHtml = '';
+        if (item.instructions) {
+            noteHtml = `<div class="item-instruction-tag"><i class="ri-information-line"></i> Note: "${item.instructions}"</div>`;
+        }
+
         itemEl.innerHTML = `
             <div class="item-details">
                 <h4>${item.name}</h4>
+                ${addonsHtml}
+                ${noteHtml}
                 <div class="item-price">Rs. ${item.price.toLocaleString()} x ${item.quantity} = <strong>Rs. ${itemTotal.toLocaleString()}</strong></div>
             </div>
             <div class="cart-qty-controls">
@@ -293,6 +597,13 @@ if (checkoutForm) {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
             message += `• ${item.quantity}x ${item.name} - Rs. ${itemTotal.toLocaleString()}\n`;
+            if (item.addons && item.addons.length > 0) {
+                const addonsStr = item.addons.map(a => `${a.name} (+Rs. ${a.price})`).join(', ');
+                message += `   └ Extras: ${addonsStr}\n`;
+            }
+            if (item.instructions) {
+                message += `   └ Kitchen Note: "${item.instructions}"\n`;
+            }
         });
         
         message += `\n*Total Amount:* Rs. ${total.toLocaleString()}\n`;
