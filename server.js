@@ -44,7 +44,19 @@ const server = http.createServer((req, res) => {
         const ext = path.extname(filePath).toLowerCase();
         const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-        res.writeHead(200, { 'Content-Type': contentType });
+        const headers = {
+            'Content-Type': contentType,
+            'Content-Length': stats.size
+        };
+
+        if (ext === '.html') {
+            headers['Cache-Control'] = 'no-cache, must-revalidate';
+        } else {
+            // High-speed browser caching for images, CSS, and JS (1 day)
+            headers['Cache-Control'] = 'public, max-age=86400, stale-while-revalidate=3600';
+        }
+
+        res.writeHead(200, headers);
         fs.createReadStream(filePath).pipe(res);
     });
 });

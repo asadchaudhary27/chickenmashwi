@@ -15,3 +15,4 @@ npm-debug.log*
 # Temporary Scripts
 *.ps1
 .temp_edge_user/
+.temp_edge*/

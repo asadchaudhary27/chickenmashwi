@@ -381,9 +381,10 @@ p, span, a, button {
 /* Dedicated Section Background Classes */
 .bg-hero { background-image: url('../assets/images/Hero.jpg'); }
 .bg-section-white-1 { background-image: url('../assets/images/section-white-1.jpg'); }
-.bg-section-yellow-1 { background-image: url('../assets/images/section-yellow-1.jpg'); }
+.bg-section-brown-1, .bg-section-yellow-1 { background-image: url('../assets/images/section-yellow-1.jpg'); }
 .bg-section-white-2 { background-image: url('../assets/images/section-white-2.jpg'); }
 .bg-section-yellow-2 { background-image: url('../assets/images/section-yellow-2.jpg'); }
+.bg-section-brown-2 { background-image: url('../assets/images/section-yellow-1.jpg'); }
 .bg-section-white-3 { background-image: url('../assets/images/section-white-3.jpg'); }
 .bg-section-yellow-3 { background-image: url('../assets/images/section-yellow-3.jpg'); }
 .bg-section-white-4 { background-image: url('../assets/images/section-white-4.jpg'); }
