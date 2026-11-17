@@ -376,6 +376,24 @@ p, span, a, button {
     position: relative;
     z-index: 10;
     opacity: 1; /* Always visible by default - never blank or missing! */
+    scroll-margin-top: 50px;
+}
+
+/* Full Viewport Section Sizes for Our Story & Mashwi Method on Desktop */
+#about,
+#ingredients {
+    min-height: 100vh;
+    padding: clamp(5.5rem, 8vh, 8.5rem) clamp(1.5rem, 5vw, 8%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#about .glass-card,
+#ingredients .glass-card {
+    max-width: 1080px;
+    width: 100%;
 }
 
 /* Dedicated Section Background Classes */
@@ -1843,7 +1861,9 @@ p, span, a, button {
         opacity: 0.95;
     }
     
-    .content-section {
+    .content-section,
+    #about,
+    #ingredients {
         padding: clamp(4rem, 7vw, 6rem) 4%;
         min-height: auto;
     }
