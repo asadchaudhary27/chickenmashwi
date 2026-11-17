@@ -174,6 +174,7 @@ if (toastViewCartBtn) {
 
 // --- Available Arabian Add-ons & Extras ---
 const AVAILABLE_ADDONS = [
+    { id: 'winter-soup-extra', name: 'Arabian Chicken Mashwi Soup (Single Bowl)', price: 250 },
     { id: 'garlic-toum', name: 'Extra Garlic Toum Sauce', price: 50 },
     { id: 'fresh-pita', name: 'Fresh Arabian Pita (Khubz)', price: 50 },
     { id: 'mandi-rice-portion', name: 'Extra Spiced Mandi Rice', price: 150 },
@@ -799,9 +800,52 @@ if (printQrBtn) {
     });
 }
 
-// Global Escape Key Listener for Modals
+// --- Welcome Winter Special Promo Popup Modal Controller ---
+const welcomeModal = document.getElementById('welcome-modal');
+const closeWelcomeModalBtn = document.getElementById('close-welcome-modal');
+const welcomeExploreMenuBtn = document.getElementById('welcome-explore-menu-btn');
+
+function openWelcomeModal() {
+    if (!welcomeModal) return;
+    // Show modal automatically after 1.2s delay for seamless entrance
+    setTimeout(() => {
+        welcomeModal.classList.add('active');
+    }, 1200);
+}
+
+function closeWelcomeModal() {
+    if (welcomeModal) welcomeModal.classList.remove('active');
+}
+
+if (closeWelcomeModalBtn) {
+    closeWelcomeModalBtn.addEventListener('click', closeWelcomeModal);
+}
+
+if (welcomeModal) {
+    welcomeModal.addEventListener('click', (e) => {
+        if (e.target === welcomeModal) closeWelcomeModal();
+    });
+}
+
+if (welcomeExploreMenuBtn) {
+    welcomeExploreMenuBtn.addEventListener('click', () => {
+        closeWelcomeModal();
+    });
+}
+
+// Trigger welcome modal on initial page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', openWelcomeModal);
+} else {
+    openWelcomeModal();
+}
+
+// Global Escape Key Listener for All Modals
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+        if (welcomeModal && welcomeModal.classList.contains('active')) {
+            closeWelcomeModal();
+        }
         if (menuCardModal && menuCardModal.classList.contains('active')) {
             closeMenuModal();
         }
@@ -810,6 +854,9 @@ document.addEventListener('keydown', (e) => {
         }
         if (qrModal && qrModal.classList.contains('active')) {
             closeQrModal();
+        }
+        if (typeof closeAddonModal === 'function') {
+            closeAddonModal();
         }
     }
 });

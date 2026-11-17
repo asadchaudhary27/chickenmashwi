@@ -2663,3 +2663,369 @@ p, span, a, button {
     }
 }
 
+/* ==========================================================================
+   Google Reviews Multi-Column Cards & Summary
+   ========================================================================== */
+.google-rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: #ffffff;
+    border: 1.5px solid #eaeaea;
+    border-radius: 50px;
+    padding: 0.9rem 2rem;
+    max-width: 650px;
+    margin: 1.5rem auto 2.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    flex-wrap: wrap;
+}
+
+.rating-number {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #111;
+    line-height: 1;
+}
+
+.rating-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.review-stars.large i {
+    font-size: 1.25rem;
+    color: #fbbc04;
+}
+
+.rating-count {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.google-badge-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.google-badge-link:hover {
+    background: #4285f4;
+    color: #ffffff;
+}
+
+.google-badge-link:hover i {
+    color: #ffffff !important;
+}
+
+.google-review-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.4rem;
+    border: 1.5px solid #f0ebe0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.google-review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    border-color: #ffcca3;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.9rem;
+    position: relative;
+}
+
+.reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.reviewer-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.reviewer-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.verified-badge {
+    font-size: 0.72rem;
+    color: #0f766e;
+    font-weight: 700;
+    background: #ccfbf1;
+    padding: 1px 7px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.review-date-stars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.review-stars i {
+    color: #fbbc04;
+    font-size: 0.9rem;
+}
+
+.review-time {
+    font-size: 0.76rem;
+    color: #888;
+}
+
+.google-icon-badge {
+    font-size: 1.4rem;
+    color: #4285f4;
+    margin-left: auto;
+}
+
+.review-text {
+    font-size: 0.92rem;
+    color: #333;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    font-style: normal;
+    flex: 1;
+}
+
+.review-tag {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: #fff4ea;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+}
+
+/* ==========================================================================
+   Welcome Winter Promo Popup Modal (With Cross Button)
+   ========================================================================== */
+.welcome-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10003;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 1rem;
+}
+
+.welcome-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.welcome-modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    transform: scale(0.9) translateY(25px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.welcome-modal-overlay.active .welcome-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.welcome-modal-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    font-size: 1.6rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
+}
+
+.welcome-modal-close-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.welcome-modal-banner {
+    position: relative;
+    height: 200px;
+    background: #111;
+    overflow: hidden;
+}
+
+.welcome-modal-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.welcome-modal-card:hover .welcome-modal-hero-img {
+    transform: scale(1.04);
+}
+
+.welcome-badge-pill {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 71, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.welcome-modal-body {
+    padding: 1.5rem 1.8rem;
+    text-align: center;
+}
+
+.welcome-modal-body h3 {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.welcome-modal-body p {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.welcome-modal-features {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-feat-chip {
+    background: #fdf5ea;
+    border: 1px solid #fed7aa;
+    color: #c2410c;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.welcome-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-modal-actions .btn-primary,
+.welcome-modal-actions .btn-secondary {
+    flex: 1;
+    min-width: 170px;
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .google-rating-summary {
+        border-radius: 20px;
+        padding: 0.8rem 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    .rating-details {
+        align-items: center;
+    }
+    .welcome-modal-body {
+        padding: 1.2rem;
+    }
+    .welcome-modal-banner {
+        height: 160px;
+    }
+    .welcome-modal-body h3 {
+        font-size: 1.25rem;
+    }
+}
+
