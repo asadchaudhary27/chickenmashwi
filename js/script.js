@@ -172,17 +172,22 @@ if (toastViewCartBtn) {
     });
 }
 
-// --- Available Arabian Add-ons & Extras ---
-const AVAILABLE_ADDONS = [
+// --- Official Menu Add-ons & Sides (Strictly matching official menu card) ---
+const GENERAL_ADDONS = [
+    { id: 'plain-rice-extra', name: 'Plain Rice (Bukhari Rice Portion)', price: 250 },
+    { id: 'batata-harra-extra', name: 'Batata Harra (Spicy Arabic Potatoes)', price: 250 },
     { id: 'winter-soup-extra', name: 'Arabian Chicken Mashwi Soup (Single Bowl)', price: 250 },
-    { id: 'garlic-toum', name: 'Extra Garlic Toum Sauce', price: 50 },
-    { id: 'fresh-pita', name: 'Fresh Arabian Pita (Khubz)', price: 50 },
-    { id: 'mandi-rice-portion', name: 'Extra Spiced Mandi Rice', price: 150 },
-    { id: 'batata-harra-extra', name: 'Batata Harra (Arabic Potatoes)', price: 100 },
-    { id: 'arabian-pickles', name: 'Arabian Torshi Pickled Turnips', price: 50 },
-    { id: 'green-chutney-extra', name: 'Spicy Arabian Green Chutney', price: 30 },
-    { id: 'cheese-layer', name: 'Melted Cheese Topping', price: 100 },
-    { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 }
+    { id: 'hummus-plain-extra', name: 'Plain Hummus Dip', price: 500 },
+    { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 },
+    { id: 'water-small-extra', name: 'Mineral Water (Small 500ml)', price: 60 }
+];
+
+const NOODLES_ADDONS = [
+    { id: 'egg-addon', name: 'Add on: Egg', price: 80 },
+    { id: 'chicken-addon', name: 'Add on: Chicken', price: 200 },
+    { id: 'winter-soup-extra', name: 'Arabian Chicken Mashwi Soup (Single Bowl)', price: 250 },
+    { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 },
+    { id: 'water-small-extra', name: 'Mineral Water (Small 500ml)', price: 60 }
 ];
 
 let currentModalItem = null;
@@ -210,9 +215,12 @@ function openAddonModal(name, basePrice, img, desc) {
     if (noteEl) noteEl.value = '';
     if (qtyValEl) qtyValEl.textContent = currentModalQty;
 
+    // Use specific addons for Noodles, and official sides for other dishes
+    const activeAddons = name.toLowerCase().includes('noodle') ? NOODLES_ADDONS : GENERAL_ADDONS;
+
     // Render selectable add-on rows
     if (addonsListEl) {
-        addonsListEl.innerHTML = AVAILABLE_ADDONS.map(addon => `
+        addonsListEl.innerHTML = activeAddons.map(addon => `
             <label class="addon-row" data-id="${addon.id}">
                 <div class="addon-row-left">
                     <input type="checkbox" class="addon-checkbox" value="${addon.id}" data-name="${addon.name}" data-price="${addon.price}">
