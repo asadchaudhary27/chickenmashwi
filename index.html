@@ -36,8 +36,10 @@
                 <a href="#about" class="nav-btn">Our Story</a>
                 <a href="#ingredients" class="nav-btn">The Method</a>
                 <a href="#menu" class="nav-btn">Menu</a>
+                <button type="button" class="nav-btn open-qr-modal-btn" style="background:none; border:none; cursor:pointer; font-family:inherit;"><i class="ri-qr-code-line"></i> Table QR</button>
                 <a href="#quality" class="nav-btn">Quality</a>
                 <a href="#delivery" class="nav-btn">Delivery</a>
+                <a href="#reviews" class="nav-btn">Reviews</a>
                 <a href="#contact" class="nav-btn">Contact</a>
                 <a href="#menu" class="nav-btn primary-nav-btn">Order Now</a>
             </nav>
@@ -64,6 +66,7 @@
                 <div class="hero-btns">
                     <a href="#menu" class="btn-primary">Order Now <i class="ri-arrow-right-line"></i></a>
                     <button type="button" class="btn-secondary open-menu-card-btn" id="hero-menu-card-btn"><i class="ri-restaurant-line"></i> Menu Card</button>
+                    <button type="button" class="btn-secondary open-qr-modal-btn" id="hero-qr-btn"><i class="ri-qr-scan-2-line"></i> Table QR</button>
                 </div>
             </div>
         </section>
@@ -102,6 +105,29 @@
                         <button type="button" class="btn-secondary open-menu-card-btn" id="menu-section-card-btn">
                             <i class="ri-restaurant-line"></i> View Menu Card
                         </button>
+                        <button type="button" class="btn-secondary open-qr-modal-btn" id="menu-section-qr-btn">
+                            <i class="ri-qr-scan-2-line"></i> Table QR & Quick Links
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dine-In Table QR & 1-Click Ordering Banner -->
+                <div class="qr-banner-card">
+                    <div class="qr-banner-left">
+                        <span class="qr-pill"><i class="ri-qr-code-line"></i> Dine-In & Table Orders</span>
+                        <h3>Scan QR for Instant Digital Menu</h3>
+                        <p>Diners at tables can scan this QR code with their mobile phone camera to browse dishes, choose portions, and send their order directly to our WhatsApp.</p>
+                        <div class="qr-quick-actions">
+                            <button type="button" class="btn-primary open-qr-modal-btn" style="padding: 0.6rem 1.2rem;"><i class="ri-qr-scan-2-line"></i> View & Print Table QR</button>
+                            <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-secondary google-review-btn"><i class="ri-google-fill"></i> Google Review (5★)</a>
+                            <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-secondary google-maps-btn"><i class="ri-map-pin-2-fill"></i> Directions</a>
+                        </div>
+                    </div>
+                    <div class="qr-banner-right">
+                        <div class="qr-code-frame open-qr-modal-btn" title="Click to enlarge or print table card">
+                            <img src="assets/images/qr-menu.png" alt="Chicken Mashwi Digital Menu QR Code" width="140" height="140">
+                            <span class="qr-caption"><i class="ri-zoom-in-line"></i> Scan or Print</span>
+                        </div>
                     </div>
                 </div>
 
@@ -687,6 +713,11 @@
                         <div class="review-author">— Bilal, Model Town</div>
                     </div>
                 </div>
+
+                <div style="margin-top: 2.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-primary" style="background: #4285F4; border-color: #4285F4; box-shadow: 0 6px 20px rgba(66, 133, 244, 0.35);"><i class="ri-google-fill"></i> Leave a Google Review (5★)</a>
+                    <button type="button" class="btn-secondary open-qr-modal-btn" data-qr-target="review"><i class="ri-qr-code-line"></i> Show Review QR</button>
+                </div>
             </div>
         </section>
 
@@ -699,9 +730,10 @@
                 <p style="margin-bottom: 1rem;"><strong>Address:</strong> Barkat Market, Commercial Area, Garden Town, Lahore, Pakistan.</p>
                 <p style="margin-bottom: 1rem;"><strong>Timings:</strong> 12:00 PM – 2:00 AM Daily</p>
                 <p style="margin-bottom: 1.5rem;"><strong>Phone / WhatsApp:</strong> <a href="tel:03399978999" style="color: var(--primary-color); font-weight: 800; text-decoration: none;">033-999-78-999</a> &nbsp;|&nbsp; <strong>Instagram:</strong> <a href="https://instagram.com/chickenmashwi" target="_blank" style="color: var(--primary-color); font-weight: 800; text-decoration: none;">@chickenmashwi</a></p>
-                <div class="hero-btns" style="justify-content: center;">
-                    <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-primary"><i class="ri-map-pin-line"></i> Open in Google Maps</a>
-                    <a href="https://wa.me/923399978999" target="_blank" class="btn-secondary" style="background: #25D366; color: white; border-color: #25D366;"><i class="ri-whatsapp-line"></i> Chat on WhatsApp</a>
+                <div class="hero-btns" style="justify-content: center; margin-top: 1.5rem;">
+                    <a href="https://maps.google.com/?cid=7872371147936234528" target="_blank" class="btn-primary" style="background: #34A853; border-color: #34A853; box-shadow: 0 6px 20px rgba(52, 168, 83, 0.35);"><i class="ri-map-pin-2-fill"></i> Directions in Google Maps</a>
+                    <a href="https://wa.me/923399978999" target="_blank" class="btn-primary" style="background: #25D366; border-color: #25D366; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);"><i class="ri-whatsapp-line"></i> Order on WhatsApp</a>
+                    <button type="button" class="btn-secondary open-qr-modal-btn" data-qr-target="location"><i class="ri-qr-code-line"></i> Location QR</button>
                 </div>
             </div>
         </section>
@@ -771,12 +803,12 @@
                     <input type="tel" id="order-phone" required placeholder="03XX-XXXXXXX">
                 </div>
                 <div class="input-group">
-                    <label for="order-address">Delivery Address</label>
-                    <textarea id="order-address" required placeholder="Apartment, Street, Area..."></textarea>
+                    <label for="order-address">Table No. (Dine-in) or Delivery Address</label>
+                    <textarea id="order-address" required placeholder="e.g. Table 4 OR Barkat Market / Garden Town, Lahore"></textarea>
                 </div>
                 <div class="input-group">
                     <label for="order-notes">Special Notes (Optional)</label>
-                    <textarea id="order-notes" placeholder="Extra spicy, extra Daqoos..."></textarea>
+                    <textarea id="order-notes" placeholder="Extra spicy, extra Daqoos, cutlery..."></textarea>
                 </div>
                 <button type="submit" class="whatsapp-btn"><i class="ri-whatsapp-line"></i> Send Order via WhatsApp</button>
             </form>
@@ -815,6 +847,54 @@
             </div>
         </div>
     </div>
+
+    <!-- Digital Table QR Code & Quick Action Modal -->
+    <div class="qr-modal-overlay" id="qr-modal" aria-hidden="true" role="dialog" aria-labelledby="qr-modal-title">
+        <div class="qr-modal-content">
+            <button type="button" class="close-modal" id="close-qr-modal" aria-label="Close QR Modal"><i class="ri-close-line"></i></button>
+            <div class="qr-modal-header text-center">
+                <img src="assets/images/Logo.jpeg" alt="Logo" class="qr-modal-logo">
+                <h2 id="qr-modal-title">Chicken Mashwi QR Codes</h2>
+                <p>Scan with your phone camera for instant 1-click access</p>
+            </div>
+            
+            <!-- QR Mode Tabs -->
+            <div class="qr-tabs">
+                <button type="button" class="qr-tab-btn active" data-qr="menu"><i class="ri-restaurant-line"></i> Digital Menu</button>
+                <button type="button" class="qr-tab-btn" data-qr="review"><i class="ri-star-smile-line"></i> Google Review</button>
+                <button type="button" class="qr-tab-btn" data-qr="location"><i class="ri-map-pin-line"></i> Google Maps</button>
+                <button type="button" class="qr-tab-btn" data-qr="whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</button>
+            </div>
+
+            <!-- Active QR Display Card (Printable Table Stand) -->
+            <div class="qr-display-box text-center" id="qr-display-printable">
+                <div class="qr-card-print-frame">
+                    <div class="qr-print-brand">
+                        <h4>CHICKEN MASHWI</h4>
+                        <span class="qr-tagline">Good Food, Good Mood • Barkat Market Lahore</span>
+                    </div>
+                    <div class="qr-img-wrapper">
+                        <img id="qr-display-img" src="assets/images/qr-menu.png" alt="Chicken Mashwi QR Code" width="200" height="200">
+                    </div>
+                    <div class="qr-display-info">
+                        <h3 id="qr-display-title">Scan for Digital Menu & Order</h3>
+                        <p id="qr-display-desc">Scan with your mobile camera to open our live digital menu, pick your favorite dishes, and order directly on WhatsApp.</p>
+                        <a id="qr-direct-link" href="#menu" class="qr-direct-link-btn" target="_blank"><i class="ri-external-link-line"></i> Open Digital Menu (1-Click)</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qr-modal-actions">
+                <button type="button" class="btn-primary" id="print-qr-btn" style="padding: 0.6rem 1.4rem;"><i class="ri-printer-line"></i> Print Table Stand</button>
+                <a id="download-qr-btn" href="assets/images/qr-menu.png" download="Chicken-Mashwi-Menu-QR.png" class="btn-secondary"><i class="ri-download-line"></i> Download QR Image</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Table QR Badge -->
+    <button type="button" class="floating-qr-badge open-qr-modal-btn" title="Scan Table QR Code">
+        <i class="ri-qr-code-line"></i> <span>Table QR</span>
+    </button>
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
