@@ -176,7 +176,7 @@ if (toastViewCartBtn) {
 const GENERAL_ADDONS = [
     { id: 'plain-rice-extra', name: 'Plain Rice (Bukhari Rice Portion)', price: 250 },
     { id: 'batata-harra-extra', name: 'Batata Harra (Spicy Arabic Potatoes)', price: 250 },
-    { id: 'winter-soup-extra', name: 'Arabian Chicken Mashwi Soup (Single Bowl)', price: 250 },
+    { id: 'winter-soup-extra', name: 'Mashwi Noodles Soup (Bowl)', price: 250 },
     { id: 'hummus-plain-extra', name: 'Plain Hummus Dip', price: 500 },
     { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 },
     { id: 'water-small-extra', name: 'Mineral Water (Small 500ml)', price: 60 }
@@ -185,7 +185,7 @@ const GENERAL_ADDONS = [
 const NOODLES_ADDONS = [
     { id: 'egg-addon', name: 'Add on: Egg', price: 80 },
     { id: 'chicken-addon', name: 'Add on: Chicken', price: 200 },
-    { id: 'winter-soup-extra', name: 'Arabian Chicken Mashwi Soup (Single Bowl)', price: 250 },
+    { id: 'winter-soup-extra', name: 'Mashwi Noodles Soup (Bowl)', price: 250 },
     { id: 'drink-can-extra', name: 'Chilled Cola / Sprite (350ml)', price: 100 },
     { id: 'water-small-extra', name: 'Mineral Water (Small 500ml)', price: 60 }
 ];
@@ -761,12 +761,6 @@ function switchQR(type) {
         downloadQrBtn.href = config.img;
         downloadQrBtn.download = config.downloadName;
     }
-
-    // Toggle menu-specific quick order preview inside modal
-    const qrQuickOrderEl = document.getElementById('qr-modal-quick-order');
-    if (qrQuickOrderEl) {
-        qrQuickOrderEl.style.display = (type === 'menu') ? 'block' : 'none';
-    }
 }
 
 const openQrModal = (e) => {
@@ -831,17 +825,6 @@ if (qrDirectLink) {
             if (targetEl) {
                 targetEl.scrollIntoView({ behavior: 'smooth' });
             }
-        }
-    });
-}
-
-const qrSeeAllBtn = document.getElementById('qr-modal-see-all-btn');
-if (qrSeeAllBtn) {
-    qrSeeAllBtn.addEventListener('click', () => {
-        closeQrModal();
-        const menuEl = document.getElementById('menu');
-        if (menuEl) {
-            menuEl.scrollIntoView({ behavior: 'smooth' });
         }
     });
 }

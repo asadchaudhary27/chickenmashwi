@@ -177,104 +177,196 @@
                     </div>
                 </div>
 
-                <!-- Category Navigation Tabs -->
+                <!-- Category Navigation Tabs (Standard Culinary Sequence: Soup -> Salad -> Appetiser -> Main Course -> Beverages) -->
                 <div class="menu-tabs">
                     <button type="button" class="menu-tab-btn active" data-category="all"><i class="ri-restaurant-line"></i> All Items</button>
-                    <button type="button" class="menu-tab-btn" data-category="winter-soups"><i class="ri-temp-hot-line" style="color: #ff5722;"></i> Winter Soups ❄️</button>
+                    <button type="button" class="menu-tab-btn" data-category="winter-soups"><i class="ri-temp-hot-line" style="color: #ff5722;"></i> Soups ❄️</button>
+                    <button type="button" class="menu-tab-btn" data-category="salads"><i class="ri-leaf-line"></i> Salads</button>
+                    <button type="button" class="menu-tab-btn" data-category="appetisers"><i class="ri-apps-2-line"></i> Appetisers</button>
                     <button type="button" class="menu-tab-btn" data-category="chicken-mashwi"><i class="ri-fire-line"></i> Chicken Mashwi</button>
                     <button type="button" class="menu-tab-btn" data-category="wraps-plates"><i class="ri-goblet-line"></i> Plates & Wraps</button>
-                    <button type="button" class="menu-tab-btn" data-category="noodles"><i class="ri-bowl-line"></i> Noodles</button>
-                    <button type="button" class="menu-tab-btn" data-category="appetisers"><i class="ri-apps-2-line"></i> Appetisers</button>
-                    <button type="button" class="menu-tab-btn" data-category="salads"><i class="ri-leaf-line"></i> Salads</button>
+                    <button type="button" class="menu-tab-btn" data-category="noodles"><i class="ri-bowl-line"></i> Mashwi Noodles</button>
                     <button type="button" class="menu-tab-btn" data-category="beverages"><i class="ri-cup-line"></i> Beverages</button>
                 </div>
                 
-                <!-- Category 0: Winter Season Special Hot Soups -->
+                <!-- Category 1: Hot Soups (Standard Culinary Sequence: 1. Soups) -->
                 <div class="menu-category-section" data-category="winter-soups" id="winter-soups-section">
                     <div class="category-header" style="background: linear-gradient(135deg, rgba(255, 71, 0, 0.08) 0%, rgba(255, 140, 0, 0.12) 100%); padding: 1.4rem; border-radius: 20px; border: 2px dashed #ff7700; margin-bottom: 2rem;">
                         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                             <h3 class="category-title" style="color: #d9480f; margin: 0; display: flex; align-items: center; gap: 8px;">
-                                <i class="ri-fire-fill"></i> Winter Season Special: Hot Soups & Shorba ❄️🍲
+                                <i class="ri-fire-fill"></i> Hot Soups & Broth ❄️🍲
                             </h3>
                             <span style="background: #d9480f; color: #fff; font-size: 0.8rem; font-weight: 800; padding: 5px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;">Winter Special ❄️</span>
                         </div>
-                        <p class="category-subtitle" style="margin-top: 8px; font-size: 0.95rem; color: #555;">Piping hot, nourishing slow-simmered chicken broths and hearty soups to warm up Lahore's cold winter days and late nights.</p>
+                        <p class="category-subtitle" style="margin-top: 8px; font-size: 0.95rem; color: #555;">Savor the rich, smoky goodness of Mashwi chicken and noodles in our hearty signature broth!</p>
                     </div>
-                    <div class="menu-grid">
-                        <!-- Arabian Chicken Mashwi Soup (Single Bowl) -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge bestseller" style="background: #d9480f;"><i class="ri-fire-line"></i> Winter Bestseller • Single Bowl</span>
-                                <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Piping Hot Arabian Chicken Mashwi Soup" class="menu-item-img" loading="lazy" decoding="async">
+                    <div class="menu-grid" style="display: flex; justify-content: center;">
+                        <!-- Mashwi Noodles Soup (Single Exclusive Special) -->
+                        <div class="menu-grid-card" style="max-width: 440px; width: 100%;">
+                            <div class="card-img-wrapper" style="position: relative; overflow: hidden; height: 260px;">
+                                <span class="item-badge bestseller" style="background: #d9480f;"><i class="ri-fire-line"></i> Winter Bestseller • Special</span>
+                                <img src="assets/images/menu/mashwi_noodles_soup_poster.jpg" alt="Mashwi Noodles Soup" class="menu-item-img" style="object-position: center 58%;" loading="lazy" decoding="async">
                             </div>
                             <div class="card-body">
-                                <h4>Arabian Chicken Mashwi Soup (Single Bowl)</h4>
-                                <p>Authentic slow flame chicken bone broth infused with Middle Eastern spices, loaded with shredded roasted chicken, sweet golden corn, cracked black pepper & fresh lemon.</p>
+                                <h4>Mashwi Noodles Soup</h4>
+                                <p>Savor the rich, smoky goodness of Mashwi chicken and noodles in our hearty signature broth! Loaded with tender slow flame roasted chicken cuts, noodles, chili rings and fresh spring onions.</p>
                                 <div class="card-tags">
-                                    <span class="mini-tag">Piping Hot</span>
-                                    <span class="mini-tag">Shredded Roast Chicken</span>
-                                    <span class="mini-tag">Winter Immunity</span>
+                                    <span class="mini-tag">Signature Broth</span>
+                                    <span class="mini-tag">Mashwi Chicken Cuts</span>
+                                    <span class="mini-tag">Tender Noodles</span>
                                 </div>
                             </div>
                             <div class="price-row justify-center">
                                 <span class="price">Rs. 250</span>
                                 <div class="card-action-btns">
-                                    <button type="button" class="customize-btn" data-name="Arabian Chicken Mashwi Soup (Single)" data-price="250" data-img="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" data-desc="Piping hot slow flame chicken broth with shredded roasted chicken, sweet corn, black pepper and lemon."><i class="ri-equalizer-line"></i> Add-ons</button>
-                                    <button type="button" class="add-to-cart-btn" data-name="Arabian Chicken Mashwi Soup (Single)" data-price="250"><i class="ri-add-line"></i> Add</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Arabian Chicken Mashwi Soup (Family Sharing Bowl) -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge bestseller" style="background: #b02a37;"><i class="ri-team-line"></i> Family Bowl • Serves 3-4</span>
-                                <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Family Bowl Arabian Chicken Mashwi Soup" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Arabian Chicken Mashwi Soup (Family Bowl)</h4>
-                                <p>Generous family-sized bowl of rich steaming Arabian chicken broth with double portion of slow-roasted chicken shreds, crispy soup crackers, and fresh lemon wedges.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Family Sharing (3-4 Persons)</span>
-                                    <span class="mini-tag">Soup Crackers Included</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 650</span>
-                                <div class="card-action-btns">
-                                    <button type="button" class="customize-btn" data-name="Arabian Chicken Mashwi Soup (Family Bowl)" data-price="650" data-img="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" data-desc="Generous family bowl of rich steaming Arabian chicken broth with double roasted chicken shreds and crackers."><i class="ri-equalizer-line"></i> Add-ons</button>
-                                    <button type="button" class="add-to-cart-btn" data-name="Arabian Chicken Mashwi Soup (Family Bowl)" data-price="650"><i class="ri-add-line"></i> Add</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Hot & Spicy Chicken Corn Soup -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge"><i class="ri-temp-hot-line"></i> Lahori Classic Winter</span>
-                                <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Hot & Spicy Chicken Corn Soup" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Hot & Spicy Chicken Corn Soup (Single Bowl)</h4>
-                                <p>Thick, heartwarming chicken and sweet corn soup with silky egg drops, tender chicken, accompanied by vinegar chilies, soy sauce, and red chili sauce.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Silky Egg Drops</span>
-                                    <span class="mini-tag">Sweet Corn & Chicken</span>
-                                    <span class="mini-tag">Spicy & Tangy</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 220</span>
-                                <div class="card-action-btns">
-                                    <button type="button" class="customize-btn" data-name="Hot & Spicy Chicken Corn Soup" data-price="220" data-img="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" data-desc="Thick heartwarming chicken and sweet corn soup with silky egg drops and vinegar chilies."><i class="ri-equalizer-line"></i> Add-ons</button>
-                                    <button type="button" class="add-to-cart-btn" data-name="Hot & Spicy Chicken Corn Soup" data-price="220"><i class="ri-add-line"></i> Add</button>
+                                    <button type="button" class="customize-btn" data-name="Mashwi Noodles Soup" data-price="250" data-img="assets/images/menu/mashwi_noodles_soup_poster.jpg" data-desc="Savor the rich, smoky goodness of Mashwi chicken and noodles in our hearty signature broth!"><i class="ri-equalizer-line"></i> Add-ons</button>
+                                    <button type="button" class="add-to-cart-btn" data-name="Mashwi Noodles Soup" data-price="250"><i class="ri-add-line"></i> Add</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Category 1: Chicken Mashwi (Main Dish) -->
+                <!-- Category 2: Salads (Standard Culinary Sequence: 2. Salads) -->
+                <div class="menu-category-section" data-category="salads">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-leaf-fill"></i> Fresh Salads</h3>
+                        <p class="category-subtitle">Fresh, nutritious salads packed with vibrant flavors and healthy macros.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Chicken Salad -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge nutrition"><i class="ri-heart-pulse-fill"></i> 38g Protein | ~460 Kcal</span>
+                                <img src="assets/images/menu/chicken_mashwi_chicken_salad.jpg" alt="Chicken Salad" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Chicken Salad</h4>
+                                <p>High-protein meal of tender slow flame chicken over crisp mixed greens, cucumbers, and zesty light dressing.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">38g Protein</span>
+                                    <span class="mini-tag">~460 Kcal</span>
+                                    <span class="mini-tag">Fitness Choice</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 600</span>
+                                <button class="add-to-cart-btn" data-name="Chicken Salad" data-price="600"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Fatush Salad -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-leaf-line"></i> Fresh & Crisp</span>
+                                <img src="assets/images/menu/chicken_mashwi_fattoush.jpg" alt="Fatush Salad" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Fatush Salad</h4>
+                                <p>Traditional crisp Levantine salad with fresh cucumbers, juicy tomatoes, radishes, crispy toasted pita & tangy sumac.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Crispy Pita Chips</span>
+                                    <span class="mini-tag">Tangy Sumac</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 300</span>
+                                <button class="add-to-cart-btn" data-name="Fatush Salad" data-price="300"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Appetisers & Sides (Standard Culinary Sequence: 3. Appetisers) -->
+                <div class="menu-category-section" data-category="appetisers">
+                    <div class="category-header">
+                        <h3 class="category-title"><i class="ri-apps-2-fill"></i> Appetisers & Sides</h3>
+                        <p class="category-subtitle">Authentic Middle Eastern dips, spiced starters, and fragrant rice.</p>
+                    </div>
+                    <div class="menu-grid">
+                        <!-- Plain Hummus -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-check-line"></i> Classic Dip</span>
+                                <img src="assets/images/menu/chicken_mashwi_hummus_plain.jpg" alt="Plain Hummus" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Hummus (Plain)</h4>
+                                <p>Silky smooth blended chickpeas with tahini, garlic, lemon juice, and extra virgin olive oil.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Authentic Tahini</span>
+                                    <span class="mini-tag">Olive Oil</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 500</span>
+                                <button class="add-to-cart-btn" data-name="Hummus (Plain)" data-price="500"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Hummus with Chicken -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> House Specialty</span>
+                                <img src="assets/images/menu/chicken_mashwi_hummus_chicken.jpg" alt="Hummus with Chicken" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Hummus with Chicken</h4>
+                                <p>Our signature creamy hummus bowl topped with warm, aromatic slow flame spiced chicken pieces.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Topped with Chicken</span>
+                                    <span class="mini-tag">Rich & Flavorful</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 700</span>
+                                <button class="add-to-cart-btn" data-name="Hummus with Chicken" data-price="700"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Batata Harra -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge bestseller"><i class="ri-fire-fill"></i> Spicy Lebanese</span>
+                                <img src="assets/images/menu/chicken_mashwi_batata_harra.jpg" alt="Batata Harra" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Batata Harra</h4>
+                                <p>Crispy golden Arabian potato cubes tossed with chili, garlic, fresh coriander, and warm Arabic spices.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Spicy Potatoes</span>
+                                    <span class="mini-tag">Garlic & Cilantro</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 250</span>
+                                <button class="add-to-cart-btn" data-name="Batata Harra" data-price="250"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Plain Rice (Aromatic Arabic Rice) -->
+                        <div class="menu-grid-card">
+                            <div class="card-img-wrapper">
+                                <span class="item-badge"><i class="ri-bowl-line"></i> Side Dish</span>
+                                <img src="assets/images/menu/chicken_mashwi_plain_rice.jpg" alt="Plain Rice" class="menu-item-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="card-body">
+                                <h4>Plain Rice</h4>
+                                <p>Fragrant steamed yellow and white spiced rice cooked with aromatic Middle Eastern herbs.</p>
+                                <div class="card-tags">
+                                    <span class="mini-tag">Aromatic Rice</span>
+                                    <span class="mini-tag">Middle Eastern Herbs</span>
+                                </div>
+                            </div>
+                            <div class="price-row justify-center">
+                                <span class="price">Rs. 250</span>
+                                <button class="add-to-cart-btn" data-name="Plain Rice" data-price="250"><i class="ri-add-line"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Chicken Mashwi (Main Course) -->
                 <div class="menu-category-section" data-category="chicken-mashwi">
                     <div class="category-header">
                         <h3 class="category-title"><i class="ri-fire-fill"></i> Chicken Mashwi (Main Dish)</h3>
@@ -418,26 +510,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Plain Rice -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge"><i class="ri-bowl-line"></i> Signature Side</span>
-                                <img src="assets/images/menu/chicken_mashwi_plain_rice.jpg" alt="Plain Rice" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Plain Rice</h4>
-                                <p>Extra portion of signature fluffy yellow & white Bukhari rice, garnished with sweet golden crispy fried onions.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Fluffy Bukhari Rice</span>
-                                    <span class="mini-tag">Crispy Onions</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 250</span>
-                                <button class="add-to-cart-btn" data-name="Plain Rice" data-price="250"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -448,10 +520,10 @@
                         <p class="category-subtitle">Fast, satisfying Arabic street-style meals and flavor-packed wraps.</p>
                     </div>
                     <div class="menu-grid">
-                        <!-- Mashwi Plate -->
+                        <!-- Mashwi Plate (Updated Price: Rs. 350) -->
                         <div class="menu-grid-card">
                             <div class="card-img-wrapper">
-                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> Value Favorite</span>
+                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> Value Favorite • Rs. 350</span>
                                 <img src="assets/images/menu/chicken_mashwi_plate_leg.jpg" alt="Mashwi Plate" class="menu-item-img" loading="lazy" decoding="async">
                             </div>
                             <div class="card-body">
@@ -463,10 +535,10 @@
                                 </div>
                             </div>
                             <div class="price-row justify-center">
-                                <span class="price">Rs. 400</span>
+                                <span class="price">Rs. 350</span>
                                 <div class="card-action-btns">
-                                    <button type="button" class="customize-btn" data-name="Mashwi Plate" data-price="400" data-img="assets/images/menu/chicken_mashwi_plate_leg.jpg" data-desc="A delicious meal plate that comes with a piece of slow flame chicken served over fragrant rice."><i class="ri-equalizer-line"></i> Add-ons</button>
-                                    <button type="button" class="add-to-cart-btn" data-name="Mashwi Plate" data-price="400"><i class="ri-add-line"></i> Add</button>
+                                    <button type="button" class="customize-btn" data-name="Mashwi Plate" data-price="350" data-img="assets/images/menu/chicken_mashwi_plate_leg.jpg" data-desc="A delicious meal plate that comes with a piece of slow flame chicken served over fragrant rice."><i class="ri-equalizer-line"></i> Add-ons</button>
+                                    <button type="button" class="add-to-cart-btn" data-name="Mashwi Plate" data-price="350"><i class="ri-add-line"></i> Add</button>
                                 </div>
                             </div>
                         </div>
@@ -574,126 +646,7 @@
                     </div>
                 </div>
 
-                <!-- Category 4: Appetisers -->
-                <div class="menu-category-section" data-category="appetisers">
-                    <div class="category-header">
-                        <h3 class="category-title"><i class="ri-apps-2-fill"></i> Appetisers</h3>
-                        <p class="category-subtitle">Authentic Middle Eastern dips and spiced starters.</p>
-                    </div>
-                    <div class="menu-grid">
-                        <!-- Plain Hummus -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge"><i class="ri-check-line"></i> Classic Dip</span>
-                                <img src="assets/images/menu/chicken_mashwi_hummus_plain.jpg" alt="Plain Hummus" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Hummus (Plain)</h4>
-                                <p>Silky smooth blended chickpeas with tahini, garlic, lemon juice, and extra virgin olive oil.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Authentic Tahini</span>
-                                    <span class="mini-tag">Olive Oil</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 500</span>
-                                <button class="add-to-cart-btn" data-name="Hummus (Plain)" data-price="500"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
-
-                        <!-- Hummus with Chicken -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge bestseller"><i class="ri-star-fill"></i> House Specialty</span>
-                                <img src="assets/images/menu/chicken_mashwi_hummus_chicken.jpg" alt="Hummus with Chicken" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Hummus with Chicken</h4>
-                                <p>Our signature creamy hummus bowl topped with warm, aromatic slow flame spiced chicken pieces.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Topped with Chicken</span>
-                                    <span class="mini-tag">Rich & Flavorful</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 700</span>
-                                <button class="add-to-cart-btn" data-name="Hummus with Chicken" data-price="700"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
-
-                        <!-- Batata Harra -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge bestseller"><i class="ri-fire-fill"></i> Spicy Lebanese</span>
-                                <img src="assets/images/menu/chicken_mashwi_batata_harra.jpg" alt="Batata Harra" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Batata Harra</h4>
-                                <p>Crispy golden Arabian potato cubes tossed with chili, garlic, fresh coriander, and warm Arabic spices.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Spicy Potatoes</span>
-                                    <span class="mini-tag">Garlic & Cilantro</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 250</span>
-                                <button class="add-to-cart-btn" data-name="Batata Harra" data-price="250"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 5: Salads -->
-                <div class="menu-category-section" data-category="salads">
-                    <div class="category-header">
-                        <h3 class="category-title"><i class="ri-leaf-fill"></i> Salad</h3>
-                        <p class="category-subtitle">Fresh, nutritious salads packed with vibrant flavors and healthy macros.</p>
-                    </div>
-                    <div class="menu-grid">
-                        <!-- Chicken Salad -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge nutrition"><i class="ri-heart-pulse-fill"></i> 38g Protein | ~460 Kcal</span>
-                                <img src="assets/images/menu/chicken_mashwi_chicken_salad.jpg" alt="Chicken Salad" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Chicken Salad</h4>
-                                <p>High-protein meal of tender slow flame chicken over crisp mixed greens, cucumbers, and zesty light dressing.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">38g Protein</span>
-                                    <span class="mini-tag">~460 Kcal</span>
-                                    <span class="mini-tag">Fitness Choice</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 600</span>
-                                <button class="add-to-cart-btn" data-name="Chicken Salad" data-price="600"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
-
-                        <!-- Fatush Salad -->
-                        <div class="menu-grid-card">
-                            <div class="card-img-wrapper">
-                                <span class="item-badge"><i class="ri-leaf-line"></i> Fresh & Crisp</span>
-                                <img src="assets/images/menu/chicken_mashwi_fattoush.jpg" alt="Fatush Salad" class="menu-item-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="card-body">
-                                <h4>Fatush Salad</h4>
-                                <p>Traditional crisp Levantine salad with fresh cucumbers, juicy tomatoes, radishes, crispy toasted pita & tangy sumac.</p>
-                                <div class="card-tags">
-                                    <span class="mini-tag">Crispy Pita Chips</span>
-                                    <span class="mini-tag">Tangy Sumac</span>
-                                </div>
-                            </div>
-                            <div class="price-row justify-center">
-                                <span class="price">Rs. 300</span>
-                                <button class="add-to-cart-btn" data-name="Fatush Salad" data-price="300"><i class="ri-add-line"></i> Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 6: Beverages -->
+                <!-- Category 7: Beverages (Standard Culinary Sequence: 5. Beverages) -->
                 <div class="menu-category-section" data-category="beverages">
                     <div class="category-header">
                         <h3 class="category-title"><i class="ri-cup-fill"></i> Beverages</h3>
@@ -943,7 +896,7 @@
                             </div>
                             <i class="ri-google-fill google-icon-badge" title="Google Verified Review"></i>
                         </div>
-                        <p class="review-text">"Mashwi Plate sirf Rs. 400 mein complete meal hai. Chicken piece tender, rice fragrant aur portion size boht generous hai. Barkat market ka real hidden gem!"</p>
+                        <p class="review-text">"Mashwi Plate sirf Rs. 350 mein complete meal hai. Chicken piece tender, rice fragrant aur portion size boht generous hai. Barkat market ka real hidden gem!"</p>
                         <div class="review-tag"><i class="ri-money-dollar-circle-line"></i> Value Deal • Mashwi Plate</div>
                     </div>
 
@@ -1170,7 +1123,7 @@
                 <span><i class="ri-sparkling-fill"></i> Add Menu Sides & Extras</span>
             </div>
             <div class="quick-addons-pills">
-                <button type="button" class="quick-addon-pill" data-name="Arabian Chicken Mashwi Soup (Single)" data-price="250">🍲 + Hot Soup (Rs. 250)</button>
+                <button type="button" class="quick-addon-pill" data-name="Mashwi Noodles Soup" data-price="250">🍲 + Mashwi Noodles Soup (Rs. 250)</button>
                 <button type="button" class="quick-addon-pill" data-name="Plain Rice" data-price="250">🍚 + Plain Rice (Rs. 250)</button>
                 <button type="button" class="quick-addon-pill" data-name="Batata Harra" data-price="250">🍟 + Batata Harra (Rs. 250)</button>
                 <button type="button" class="quick-addon-pill" data-name="Plain Hummus" data-price="500">🥣 + Hummus (Rs. 500)</button>
@@ -1330,50 +1283,6 @@
                         <a id="qr-direct-link" href="#menu" class="qr-direct-link-btn"><i class="ri-arrow-down-line"></i> Go to Online Menu & Order (Instant)</a>
                     </div>
                 </div>
-
-                <!-- Quick Table Ordering Preview Inside QR Modal -->
-                <div class="qr-modal-quick-order" id="qr-modal-quick-order">
-                    <div class="qr-quick-order-title">
-                        <span><i class="ri-fire-fill" style="color: #ff4700;"></i> Popular Dishes • Order from Here</span>
-                    </div>
-                    <div class="qr-quick-items-list">
-                        <div class="qr-quick-item-row">
-                            <img src="assets/images/menu/chicken_mashwi_full_with_rice.jpg" alt="Full Chicken" class="qr-item-thumb" loading="lazy">
-                            <div class="qr-item-meta">
-                                <span class="qr-item-name">Full Chicken (with Rice)</span>
-                                <span class="qr-item-price">Rs. 2,500</span>
-                            </div>
-                            <button type="button" class="add-to-cart-btn" data-name="Full Chicken (with Rice)" data-price="2500"><i class="ri-add-line"></i> Add</button>
-                        </div>
-                        <div class="qr-quick-item-row">
-                            <img src="assets/images/menu/chicken_mashwi_half_with_rice.jpg" alt="Half Chicken" class="qr-item-thumb" loading="lazy">
-                            <div class="qr-item-meta">
-                                <span class="qr-item-name">Half Chicken (with Rice)</span>
-                                <span class="qr-item-price">Rs. 1,350</span>
-                            </div>
-                            <button type="button" class="add-to-cart-btn" data-name="Half Chicken (with Rice)" data-price="1350"><i class="ri-add-line"></i> Add</button>
-                        </div>
-                        <div class="qr-quick-item-row">
-                            <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Arabian Soup" class="qr-item-thumb" loading="lazy">
-                            <div class="qr-item-meta">
-                                <span class="qr-item-name">Arabian Chicken Mashwi Soup</span>
-                                <span class="qr-item-price">Rs. 250</span>
-                            </div>
-                            <button type="button" class="add-to-cart-btn" data-name="Arabian Chicken Mashwi Soup (Single)" data-price="250"><i class="ri-add-line"></i> Add</button>
-                        </div>
-                        <div class="qr-quick-item-row">
-                            <img src="assets/images/menu/chicken_mashwi_arabic_wrap.jpg" alt="Arabic Wrap" class="qr-item-thumb" loading="lazy">
-                            <div class="qr-item-meta">
-                                <span class="qr-item-name">Arabic Chicken Wrap</span>
-                                <span class="qr-item-price">Rs. 400</span>
-                            </div>
-                            <button type="button" class="add-to-cart-btn" data-name="Arabic Chicken Wrap" data-price="400"><i class="ri-add-line"></i> Add</button>
-                        </div>
-                    </div>
-                    <button type="button" class="qr-scroll-to-menu-btn" id="qr-modal-see-all-btn">
-                        <i class="ri-restaurant-line"></i> Browse All 25 Menu Items & Customize
-                    </button>
-                </div>
             </div>
 
             <div class="qr-modal-actions">
@@ -1388,24 +1297,24 @@
         <div class="welcome-modal-card">
             <button type="button" class="welcome-modal-close-btn" id="close-welcome-modal" aria-label="Close Announcement">&times;</button>
             
-            <div class="welcome-modal-banner">
-                <span class="welcome-badge-pill"><i class="ri-fire-fill"></i> Winter Season Special ❄️</span>
-                <img src="assets/images/menu/chicken_mashwi_winter_soup.jpg?v=2" alt="Winter Special Hot Soup & Chicken Mashwi" class="welcome-modal-hero-img" loading="eager" decoding="async">
+            <div class="welcome-modal-banner" style="height: 240px; background: #e05300; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                <span class="welcome-badge-pill"><i class="ri-fire-fill"></i> Winter Special • Rs. 250 ❄️</span>
+                <img src="assets/images/menu/mashwi_noodles_soup_poster.jpg" alt="Mashwi Noodles Soup" class="welcome-modal-hero-img" style="width: 100%; height: 100%; object-fit: cover; object-position: center 48%;" loading="eager" decoding="async">
             </div>
 
             <div class="welcome-modal-body">
-                <h3 id="welcome-modal-title">Warm Up with Our Winter Specials! 🍲🔥</h3>
-                <p>Lahore ki sardi mein garma-garam <strong>Arabian Chicken Mashwi Soup</strong> aur slow flame rotisserie chicken ka asli maza lein. Barkat Market mein dine-in karein ya ghar bethe order karein!</p>
+                <h3 id="welcome-modal-title">Mashwi Noodles Soup • Rs. 250 🍲</h3>
+                <p>Savor the rich, smoky goodness of Mashwi chicken and noodles in our hearty signature broth! Barkat Market mein visit karein ya foran WhatsApp par order karein.</p>
                 
                 <div class="welcome-modal-features">
-                    <div class="welcome-feat-chip"><i class="ri-temp-hot-line"></i> Hot Chicken Shorba</div>
-                    <div class="welcome-feat-chip"><i class="ri-fire-line"></i> Slow Flame Roast</div>
-                    <div class="welcome-feat-chip"><i class="ri-truck-line"></i> Fast WhatsApp Delivery</div>
+                    <div class="welcome-feat-chip"><i class="ri-temp-hot-line"></i> Hearty Broth</div>
+                    <div class="welcome-feat-chip"><i class="ri-fire-line"></i> Mashwi Chicken</div>
+                    <div class="welcome-feat-chip"><i class="ri-bowl-line"></i> Tender Noodles</div>
                 </div>
 
                 <div class="welcome-modal-actions">
-                    <a href="#winter-soups-section" class="btn-primary" id="welcome-explore-menu-btn"><i class="ri-restaurant-line"></i> Explore Winter Menu</a>
-                    <a href="https://wa.me/923399978999?text=Hi%20Chicken%20Mashwi!%20I%20want%20to%20order%20the%20Winter%20Special%20Hot%20Soup%20%26%20Chicken%20Mashwi." target="_blank" class="btn-secondary" style="background: #25D366; color: #fff; border-color: #25D366;"><i class="ri-whatsapp-line"></i> Order on WhatsApp</a>
+                    <button type="button" class="btn-primary add-to-cart-btn" data-name="Mashwi Noodles Soup" data-price="250" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;"><i class="ri-shopping-cart-2-line"></i> Order Now • Rs. 250</button>
+                    <a href="https://wa.me/923399978999?text=Hi%20Chicken%20Mashwi!%20I%20want%20to%20order%20the%20Mashwi%20Noodles%20Soup%20(Rs.%20250)." target="_blank" class="btn-secondary" style="background: #25D366; color: #fff; border-color: #25D366; display: inline-flex; align-items: center; justify-content: center; gap: 6px;"><i class="ri-whatsapp-line"></i> WhatsApp Order</a>
                 </div>
             </div>
         </div>
