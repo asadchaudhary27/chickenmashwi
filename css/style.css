@@ -538,6 +538,23 @@ p, span, a, button {
     align-items: center;
 }
 
+.hero-google-review-btn {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #e0ded6;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.hero-google-review-btn:hover {
+    border-color: #4285F4;
+    color: #4285F4;
+    background: #f8faff;
+    box-shadow: 0 6px 18px rgba(66, 133, 244, 0.2);
+}
+
 .qr-quick-actions .google-review-btn {
     background: #4285F4;
     color: #fff;
